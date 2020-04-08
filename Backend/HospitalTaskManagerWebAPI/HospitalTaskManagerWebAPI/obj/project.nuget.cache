@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AT/IShO4EtXHTEI/sikR65o2YpY1e40vlmb7JYRfbCm9mavAfnFFShXJFGwD9Vf/IsHHuMSUYQ4QlKksoKiMPA==",
+  "dgSpecHash": "ZEhICx3lLKqhaCBl8TayJwHTJmLlJ8waUJqgXJsa7npOkAPLPolIYnZ5TFrq/UNU1BTtTROdkpEkTYuXv3VZEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\benja\\Source\\Repos\\benjaminek1337\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
+  "projectFilePath": "C:\\Users\\benja\\source\\repos\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.2.0\\microsoft.aspnetcore.2.2.0.nupkg.sha512",

@@ -12952,11 +12952,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benja\\Source\\Repos\\benjaminek1337\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\benja\\source\\repos\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
       "projectName": "HospitalTaskManagerWebAPI",
-      "projectPath": "C:\\Users\\benja\\Source\\Repos\\benjaminek1337\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
+      "projectPath": "C:\\Users\\benja\\source\\repos\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI.csproj",
       "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benja\\Source\\Repos\\benjaminek1337\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\obj\\",
+      "outputPath": "C:\\Users\\benja\\source\\repos\\HospitalTaskManager\\Backend\\HospitalTaskManagerWebAPI\\HospitalTaskManagerWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
