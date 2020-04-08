@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using HospitalTaskManagerWebAPI.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace HospitalTaskManagerWebAPI
 {
@@ -31,8 +32,26 @@ namespace HospitalTaskManagerWebAPI
 
             services.AddTransient<IRepository, Repository>();
 
+            services.AddDbContext<AuthenticationContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
             services.AddDbContext<HospitalTaskManagerContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("HospitalTaskManagerContext")));
+
+            services.AddDefaultIdentity<AppUser>()
+                .AddEntityFrameworkStores<AuthenticationContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+            });
+            
+            
+                
+            
 
         }
 
@@ -49,6 +68,7 @@ namespace HospitalTaskManagerWebAPI
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
         }
