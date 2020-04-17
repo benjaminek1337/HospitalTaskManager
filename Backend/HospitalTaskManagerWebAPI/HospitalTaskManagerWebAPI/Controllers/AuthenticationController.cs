@@ -31,7 +31,7 @@ namespace HospitalTaskManagerWebAPI.Controllers
         {
             var user = new AppUser()
             {
-                UserName = model.UserName,
+                UserName = model.UserName,           
                 Email = model.Email
             };
             try

@@ -2,9 +2,8 @@
     <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar>Meny</mat-toolbar>
         <mat-nav-list>
-            <a mat-list-item href="#">Välkommen</a>
-            <a mat-list-item href="#">Jag lär mig</a>
-            <a mat-list-item href="#">Angular</a>
+            <a mat-list-item routerLink="/register">Registrera anv</a>
+            <a mat-list-item routerLink="/schedule">Schema</a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -13,9 +12,9 @@
               <mat-icon aria-label=" Side nav toggle icon ">menu</mat-icon>
 
             </button>
-            <span>Herr Planerare</span>
+            <span>Planerarn</span>
             <span class="separator"></span>
-            <span>Logga in sig</span>
+            <span>Logga in</span>
         </mat-toolbar>
         <ng-content></ng-content>
     </mat-sidenav-content>

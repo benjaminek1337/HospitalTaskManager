@@ -1,0 +1,11 @@
+::ng-deep .dx-scheduler-cell-sizes-vertical {
+    height: inherit;
+}
+
+::ng-deep .dx-scheduler-cell-sizes-horizontal {
+    width: auto;
+}
+
+::ng-deep .dx-scheduler {
+    height: auto;
+}

@@ -1,0 +1,51 @@
+<div class="form-container-test">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Favorite food</mat-label>
+        <input matInput placeholder="Ex. Pizza" value="Sushi">
+    </mat-form-field>
+
+
+</div>
+
+
+<div class="form-container">
+    <form class="normal-form" [formGroup]="service.formModel" (submit)="onSubmit()">
+        <h2>Sign up</h2>
+        <mat-form-field appearance="fill">
+            <label>Användarnamn: </label>
+            <input matInput type="text" formControlName="UserName" class="form-control">
+            <label class="text-danger" *ngIf="service.formModel.get('UserName').touched 
+                    && service.formModel.get('UserName').errors?.required">
+                        Du måste ange ett användarnamn
+                    </label>
+        </mat-form-field>
+        <mat-form-field>
+            <label>E-postadress: </label>
+            <input type="text" formControlName="Email">
+            <label class="text-danger" *ngIf="service.formModel.get('Email').touched 
+                    && service.formModel.get('Email').errors?.email">
+                        Du måste ange en giltig Epostadress
+                    </label>
+        </mat-form-field>
+        <div formGroupName="PasswordGroup">
+            <mat-form-field>
+                <label>Lösenord: </label>
+                <input type="password" formControlName="Password">
+                <label class="text-danger" *ngIf="service.formModel.get('PasswordGroup.Password').touched 
+                        && service.formModel.get('PasswordGroup.Password').errors?.required">Du måste ange ett lösenord</label>
+                <label class="text-danger" *ngIf="service.formModel.get('PasswordGroup.Password').touched 
+                        && service.formModel.get('PasswordGroup.Password').errors?.minlength">Lösenordet måste vara minst 6 tecken långt</label>
+            </mat-form-field>
+            <mat-form-field>
+                <label>Bekräfta lösenord: </label>
+                <input type="password" formControlName="ConfirmPassword">
+                <label class="text-danger" *ngIf="service.formModel.get('PasswordGroup.ConfirmPassword').touched 
+                        && service.formModel.get('PasswordGroup.ConfirmPassword').errors?.required">Du måste bekräfta lösenordet</label>
+                <label class="text-danger" *ngIf="service.formModel.get('PasswordGroup.ConfirmPassword').touched 
+                        && service.formModel.get('PasswordGroup.ConfirmPassword').errors?.passwordMismatch">Lösenorden stämmer ej överens</label>
+            </mat-form-field>
+        </div>
+        <button type="submit" [disabled]="!service.formModel.valid">Registrera</button>
+    </form>
+</div>

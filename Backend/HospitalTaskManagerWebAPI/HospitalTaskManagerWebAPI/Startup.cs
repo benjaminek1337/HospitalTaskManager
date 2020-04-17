@@ -43,13 +43,13 @@ namespace HospitalTaskManagerWebAPI
 
             services.Configure<IdentityOptions>(options =>
             {
-                options.Password.RequireDigit = true;
+                options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
             });
-            
-            
+
+            services.AddCors();
                 
             
 
@@ -67,7 +67,10 @@ namespace HospitalTaskManagerWebAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            app.UseCors(builder => 
+            builder.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
             app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();

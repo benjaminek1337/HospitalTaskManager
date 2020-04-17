@@ -1,0 +1,6 @@
+<dx-scheduler [crossScrollingEnabled]="true" [views]='["timelineDay", "timelineMonth"]' [dataSource]="scheduledProcedureData" [groups]="['staffId']" currentView="timelineDay" [showCurrentTimeIndicator]='showCurrentTimeIndicator' [shadeUntilCurrentTime]='shadeUntilCurrentTime'
+    [firstDayOfWeek]="1" [startDayHour]="0" [endDayHour]="24" [cellDuration]="180" [currentDate]="currentDate">
+    <!-- Måste hitta nått sätt att slänga in arbetstiderna med -->
+    <dxi-resource fieldExpr="staffId" [allowMultiple]="true" [dataSource]="employeeData" label="Personal"></dxi-resource>
+    <dxi-resource [dataSource]="statusData" [useColorAsDefault]="true" fieldExpr="statusId" label="Status"></dxi-resource>
+</dx-scheduler>
