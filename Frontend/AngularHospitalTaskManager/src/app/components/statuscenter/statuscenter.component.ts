@@ -9,7 +9,7 @@ import Query from "devextreme/data/query"
 })
 export class StatuscenterComponent implements OnInit {
   
-  statusMessages:any[];
+  //statusMessages:any[];
   scheduleData:Schedule[];
   @Input()scheduledProcedureData:ScheduledProcedure[];
 
@@ -22,12 +22,13 @@ export class StatuscenterComponent implements OnInit {
 
   GetDeviantsStatus(){
     let deviants = this.scheduledProcedureData.filter(p => p.statusId === 3);
-    this.statusMessages.push(deviants);
-    this.GetStatusList();
+    return deviants;
   }
 
   GetStatusList(){
-    return this.statusMessages;
+    let statusMessages:any[];
+    statusMessages = this.GetDeviantsStatus();
+    return statusMessages;
   }
 
 }

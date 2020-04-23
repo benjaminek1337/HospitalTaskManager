@@ -3,8 +3,25 @@
 }
 
 /* ::ng-deep .dx-scheduler {
-    height: auto;
+    width: 74%;
 } */
+
+.scheduler{
+    float:left;
+    width:75%;
+    box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+}
+
+.statusbox{
+    background-color: white;
+    border-style: solid;
+    border-color:rgb(219, 219, 219);
+    border-width: 2px;
+    float:right;
+    width:24.3%;
+    margin-right:0.3%;
+    box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+}
 
 /* ::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-date-table-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-header-scrollable {  
     margin-left: 200px;  

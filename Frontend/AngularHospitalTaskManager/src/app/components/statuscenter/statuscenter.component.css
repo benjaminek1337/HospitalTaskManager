@@ -1,0 +1,33 @@
+.statusBox{
+
+}
+
+.statusBox h1{
+    text-align: center;
+    background-color: rgb(243, 208, 208);
+    padding-top: 11px;
+    padding-bottom: 9px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color:rgb(219, 219, 219);
+}
+
+.statusBox p{
+
+margin:0px;
+margin-bottom: 5px;
+}
+
+.statusBox li{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color:rgb(219, 219, 219);
+    margin-bottom: 10px;
+}
+
+.statusBox ul{
+list-style: none;
+margin-right:20px;
+margin-left:20px;
+padding:0;
+}
