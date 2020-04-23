@@ -21,7 +21,7 @@ export class StatuscenterComponent implements OnInit {
   }
 
   CreateStatusMessage(){
-    
+    //Kod för att generera statusmeddelanden utifrån parametrar
   }
 
 }
