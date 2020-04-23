@@ -4,6 +4,8 @@ export class Procedure {
     id:number;
     deptId:number;
     text: string;
+    startDate: Date;
+    endDate: Date;
 }
 
 export class Staff {
@@ -56,11 +58,6 @@ export class ProcedureStatus {
     color: string;
 }
 
-export class StatusMessage{
-    id: number;
-    scheduledProcedureId: number;
-    text:string;
-}
 
 let today = new Date();
 today.setHours(0, 0, 0, 0);
@@ -155,34 +152,41 @@ let staffViewModelData: StaffViewModel[] = [
         text: "Harry Potter",
         id: 4,
         onSite: false
-    }
+    },
 ]
 
 let procedureData: Procedure[] = [
     {
         id:1,
         text: "Operation",
-        deptId:1
+        deptId:1,
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 13 * 3600000)
     }, {
         id:2,
         text: "Spola lungor",
-        deptId:1
+        deptId:1,
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 13 * 3600000)
     }, {
         id:3,
         text: "Öronkontroll",
-        deptId:1
+        deptId:1,
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 13 * 3600000)
     }, {
         id:4,
         text: "Knäskålsrekonstruktion",
-        deptId:1
-    }, {
-        id:5,
-        text: "Dra och fiska",
-        deptId:1
-    }, {
-        id:6,
-        text:"Nattvakt",
-        deptId:1
+        deptId:1,
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 13 * 3600000)
+    },
+    {
+        id: 5,
+        text: "Örfilning",
+        deptId:1,
+        startDate: new Date(today.getTime() + 9 * 3600000),
+        endDate: new Date(today.getTime() + 12 * 3600000)
     }
 
 ];

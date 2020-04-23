@@ -68,20 +68,6 @@ export class ScheduleComponent {
         return classObject;
     }
 
-    PopulateSchedulerOutput(){
-        let schedulerOutputData = [];
-        for (let i = 0; i < this.scheduleData.length; i++) {
-            schedulerOutputData.push(this.scheduleData[i]);
-        }
-        for (let i = 0; i < this.scheduledProcedureData.length; i++) {
-            schedulerOutputData.push(this.scheduledProcedureData[i]);
-        }
-        // procedures = Query(this.scheduledProcedureData).toArray()[0];
-        // schedules = Query(this.scheduleData).toArray()[0];
-        // this.schedulerOutputData.push(schedules, procedures);
-        return schedulerOutputData;
-    }
-
     GetEmployee(id:number){
         return Query(this.employeeData).filter(["id", "=", id]).toArray()[0];
     }
@@ -95,7 +81,6 @@ export class ScheduleComponent {
     }
 
     CheckProcedureStatus() {
-        this.PopulateSchedulerOutput();
         this.scheduledProcedureData.forEach(p => {
             let staff = this.staffData.find(s => s.id == p.staffId.find(id => id == s.id))
             let schedule = this.scheduleData.find(s => s.staffId == staff.id); //Hitta sätt att bomma procedur på en gång om det ligger utanför schematid

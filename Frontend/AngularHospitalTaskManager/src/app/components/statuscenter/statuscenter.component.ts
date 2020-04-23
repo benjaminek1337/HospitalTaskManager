@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { StatusMessage, Service, ScheduledProcedure, Schedule } from '../../services/schedule.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Service, ScheduledProcedure, Schedule } from '../../services/schedule.service';
+import Query from "devextreme/data/query"
 
 @Component({
   selector: 'app-statuscenter',
@@ -8,20 +9,25 @@ import { StatusMessage, Service, ScheduledProcedure, Schedule } from '../../serv
 })
 export class StatuscenterComponent implements OnInit {
   
-  statusMessages:StatusMessage[];
+  statusMessages:any[];
   scheduleData:Schedule[];
-  scheduledProcedureData:ScheduledProcedure[];
+  @Input()scheduledProcedureData:ScheduledProcedure[];
 
   constructor(service:Service) {
-    this.scheduledProcedureData = service.getScheduledProcedures();
     this.scheduleData = service.getSchedule();
   }
 
   ngOnInit(): void {
   }
 
-  CreateStatusMessage(){
-    //Kod för att generera statusmeddelanden utifrån parametrar
+  GetDeviantsStatus(){
+    let deviants = this.scheduledProcedureData.filter(p => p.statusId === 3);
+    this.statusMessages.push(deviants);
+    this.GetStatusList();
+  }
+
+  GetStatusList(){
+    return this.statusMessages;
   }
 
 }
