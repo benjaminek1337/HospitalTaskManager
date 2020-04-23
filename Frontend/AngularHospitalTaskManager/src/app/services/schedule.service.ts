@@ -10,7 +10,7 @@ export class Staff {
     firstName:string;
     lastName:string;
     id: number;
-    departmentId:number;
+    deptId:number;
     phoneNr:string;
 }
 
@@ -19,7 +19,6 @@ export class Schedule {
     startDate: Date;
     endDate: Date;
     staffId: number;
-    color: string;
     onSite: boolean;
 }
 
@@ -35,6 +34,7 @@ export class Procedure_Schedule {
 }
 
 export class ScheduledProcedure {
+    id: number;
     text:string;
     startDate: Date;
     endDate: Date;
@@ -56,6 +56,12 @@ export class ProcedureStatus {
     color: string;
 }
 
+export class StatusMessage{
+    id: number;
+    scheduledProcedureId: number;
+    text:string;
+}
+
 let today = new Date();
 today.setHours(0, 0, 0, 0);
 //today.setDate(today.getDate() - today.getDay() + 3);
@@ -64,12 +70,12 @@ let procedureStatusData: ProcedureStatus[] = [
     {
         id:1,
         text: "Planerad",
-        color: "#4287f5"
+        color: "#d6d381"
     },
     {
         id:2,
-        text: "Påbörjad",
-        color: "#00bfb6"
+        text: "Pågående",
+        color: "#9cadf7"
     },
     {
         id:3,
@@ -79,41 +85,54 @@ let procedureStatusData: ProcedureStatus[] = [
     {
         id:4,
         text: "Slutförd",
-        color: "#00c911"
+        color: "#7bc97d"
     }
 ]
 
 let scheduledProcedureData: ScheduledProcedure[] = [
     {
+        id: 1,
         text: "Operation",
         startDate: new Date(today.getTime() + 8 * 3600000),
-        endDate: new Date(today.getTime() + 11 * 3600000),
+        endDate: new Date(today.getTime() + 13 * 3600000),
         staffId: [1, 2],
         procedureId: 1,
         statusId:1
 
     },
     {
+        id: 2,
         text: "Öronkontroll",
-        startDate: new Date(today.getTime() + 12 * 3600000),
+        startDate: new Date(today.getTime() + 15 * 3600000),
         endDate: new Date(today.getTime() + 16 * 3600000),
         staffId: [3],
         procedureId: 3,
         statusId:1
     },
     {
+        id: 3,
         text: "Lungmätning",
-        startDate: new Date(today.getTime() + 15 * 3600000),
-        endDate: new Date(today.getTime() + 18 * 3600000),
+        startDate: new Date(today.getTime() + 14 * 3600000),
+        endDate: new Date(today.getTime() + 17 * 3600000),
         staffId: [1],
         procedureId: 3,
         statusId:1
     },
     {
+        id: 4,
         text: "Knäskålsrekonstruktion",
-        startDate: new Date(today.getTime() + 18 * 3600000),
-        endDate: new Date(today.getTime() + 24 * 3600000),
+        startDate: new Date(today.getTime() + 9 * 3600000),
+        endDate: new Date(today.getTime() + 12 * 3600000),
         staffId: [4],
+        procedureId: 3,
+        statusId:1
+    },
+    {
+        id: 5,
+        text: "Örfilning",
+        startDate: new Date(today.getTime() + 9 * 3600000),
+        endDate: new Date(today.getTime() + 12 * 3600000),
+        staffId: [3],
         procedureId: 3,
         statusId:1
     }
@@ -131,11 +150,11 @@ let staffViewModelData: StaffViewModel[] = [
     }, {
         text: "Eva Morlind",
         id: 3,
-        onSite: false
+        onSite: true
     }, {
         text: "Harry Potter",
         id: 4,
-        onSite: true
+        onSite: false
     }
 ]
 
@@ -170,39 +189,35 @@ let procedureData: Procedure[] = [
 
 let scheduleData: Schedule[] = [
     {        
-        startDate: new Date(today.getTime() + 7 * 3600000),
+        startDate: new Date(today.getTime() + 8 * 3600000),
         endDate: new Date(today.getTime() + 17 * 3600000),
         staffId: 1,
-        color: "#dae8de",
         onSite: true,
         id:10
     },
     {
-        startDate: new Date(today.getTime() + 10 * 3600000),
-        endDate: new Date(today.getTime() + 19 * 3600000),
+        startDate: new Date(today.getTime() + 7 * 3600000),
+        endDate: new Date(today.getTime() + 15 * 3600000),
         staffId: 2,
-        color: "dae8de",
         onSite: false,
         id:11
     },
     {
-        startDate: new Date(today.getTime() + 18 * 3600000),
-        endDate: new Date(today.getTime() + 24 * 3600000),
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 17 * 3600000),
         staffId: 3,
-        color: "dae8de",
         onSite: true,
         id:12
     },
     {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 7 * 3600000),
+        startDate: new Date(today.getTime() + 18 * 3600000),
+        endDate: new Date(today.getTime() + 24 * 3600000),
         staffId: 4,
-        color: "dae8de",
         onSite: false,
         id:13
     }
 
-]
+];
 
 let staffData: Staff[] = [
   {
@@ -210,25 +225,25 @@ let staffData: Staff[] = [
     lastName: "Ek",
     phoneNr:"0729875641",
     id: 1,
-    departmentId:1
+    deptId:1
   }, {
     firstName: "Johannes",
     lastName: "Lundkvist",
     phoneNr:"0729875641",
     id: 2,
-    departmentId:1
+    deptId:1
   }, {
     firstName: "Harry",
     lastName: "Potter",
     phoneNr:"0729875641",
     id: 3,
-    departmentId:1
+    deptId:1
   }, {
     firstName: "Gandalf",
     lastName: "Gråskägge",
     phoneNr:"0729875641",
     id: 4,
-    departmentId:1
+    deptId:1
   }
 ];
 
@@ -239,7 +254,7 @@ let departmentData: Dept[] = [{
 
 @Injectable()
 export class Service {
-    getAppointments(){
+    getProcedures(){
         return procedureData;
     }
     getStaffs() {
@@ -256,5 +271,8 @@ export class Service {
     }
     getStatus(){
         return procedureStatusData;
+    }
+    getEmployees(){
+        return staffData;
     }
 }

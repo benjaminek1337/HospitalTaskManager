@@ -1,11 +1,38 @@
-::ng-deep .dx-scheduler-cell-sizes-vertical {
-    height: inherit;
-}
-
 ::ng-deep .dx-scheduler-cell-sizes-horizontal {
-    width: auto;
+    max-width: 25px;
 }
 
-::ng-deep .dx-scheduler {
+/* ::ng-deep .dx-scheduler {
     height: auto;
+} */
+
+/* ::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-date-table-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-header-scrollable {  
+    margin-left: 200px;  
+}  
+
+::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-group-table, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable:before {  
+    width: 200px;  
+}   */
+
+::ng-deep .notWorkTime{
+    background-color: white;
+}
+
+::ng-deep .workTime{
+    background-color:#c3f5c4;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+}
+
+.tooltipHeader h4, p{
+    padding:0;
+    margin:0;
+}
+
+.tooltipTextDeviation p{
+    color: red;
 }

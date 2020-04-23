@@ -1,6 +1,90 @@
-<dx-scheduler [crossScrollingEnabled]="true" [views]='["timelineDay", "timelineMonth"]' [dataSource]="scheduledProcedureData" [groups]="['staffId']" currentView="timelineDay" [showCurrentTimeIndicator]='showCurrentTimeIndicator' [shadeUntilCurrentTime]='shadeUntilCurrentTime'
-    [firstDayOfWeek]="1" [startDayHour]="0" [endDayHour]="24" [cellDuration]="180" [currentDate]="currentDate">
-    <!-- Måste hitta nått sätt att slänga in arbetstiderna med -->
-    <dxi-resource fieldExpr="staffId" [allowMultiple]="true" [dataSource]="employeeData" label="Personal"></dxi-resource>
-    <dxi-resource [dataSource]="statusData" [useColorAsDefault]="true" fieldExpr="statusId" label="Status"></dxi-resource>
+<dx-scheduler 
+    [views]='["Dagtid"]' 
+    [dataSource]="scheduledProcedureData" 
+    [showAllDayPanel]="false"
+    [groups]="['staffId']" 
+    currentView="timelineDay" 
+    [currentDate]="currentDate"
+    [showCurrentTimeIndicator]='showCurrentTimeIndicator' 
+    [shadeUntilCurrentTime]='shadeUntilCurrentTime'
+    [firstDayOfWeek]="1" 
+    [startDayHour]="0" 
+    [endDayHour]="24" 
+    [cellDuration]="15" 
+    appointmentTooltipTemplate="tooltipTemplate" 
+    appointmentTemplate="appointmentTemplate"
+    dataCellTemplate="dataCellTemplate"
+    resourceCellTemplate="resourceCellTemplate"
+    crossScrollingEnabled="true"
+    timeCellTemplate="timeCellTemplate"
+    >
+    <dxi-view
+        name="Dagtid"
+        type="timelineDay"
+        maxAppointmentsPerCell="auto">
+    </dxi-view>
+    <dxi-resource 
+        fieldExpr="staffId" 
+        [allowMultiple]="true"
+        [dataSource]="staffData" 
+        label="Personal">
+    </dxi-resource>
+    <dxi-resource 
+        [dataSource]="statusData" 
+        [useColorAsDefault]="true" 
+        fieldExpr="statusId" 
+        label="Status">
+    </dxi-resource>
+
+    <div *dxTemplate="let data of 'dataCellTemplate'" class="notWorkTime" [ngClass]="MarkWorkHours(data)">
+        <div  style="min-width: 200px; height: 100%;">&nbsp;</div>
+    </div>
+    
+    <!-- In me arbetstid nedan -->
+    <div *dxTemplate="let employee of 'resourceCellTemplate'">
+        <div>
+            <h4>{{employee.text}}</h4>
+            <!-- <p>Arbetstid in hit</p> -->
+        </div>
+    </div>
+
+    <div *dxTemplate="let time of 'timeCellTemplate'">
+        <h4 *ngIf="time.text.includes(':00') " style="color:black;">{{time.text.substring(0,2)}}</h4>
+    </div>
+
+    <div *dxTemplate="let model of 'appointmentTemplate'">
+        <div *ngIf="model.appointmentData.statusId != null">
+            <p>{{ (model.appointmentData.text) }}</p>  <p>{{ (model.appointmentData.startDate | date:'shortTime') + ' - ' + (model.appointmentData.endDate | date:'shortTime') }}</p>
+        </div>
+    </div>
+
+    <div *dxTemplate="let model of 'tooltipTemplate'">
+        <div class="appointmentTooltip">
+            <div class="tooltipHeader">
+                <h4>{{model.appointmentData.text}}</h4>
+                <p>Status: {{ GetProcedureStatus(model.appointmentData.statusId).text }}</p>
+                <br>
+            </div>
+            <div class="tooltipStaff">
+                <h4>Bemanning:</h4>
+                <ul>
+                    <li *ngFor="let item of model.appointmentData.staffId; let i = index">
+                        <p class="tooltipTextDeviation" *ngIf="GetProcedureStaff(item).onSite == false
+                        && model.appointmentData.statusId == 3">{{GetProcedureStaff(item).text}} är frånvarande.<br>
+                            Telefonnr: {{GetEmployee(item).phoneNr}} <br>
+                        </p>
+                        <p *ngIf="model.appointmentData.statusId != 3">{{GetProcedureStaff(item).text}}</p>
+                    </li>
+
+                </ul>
+                <br>
+            </div>
+            <div class="tooltipDeviation" *ngIf="model.appointmentData.statusId == 3">
+                <button mat-raised-button color="accent">Till omplanering</button>
+                <br>
+            </div>
+        </div>
+    </div>
 </dx-scheduler>
+
+<app-statuscenter></app-statuscenter>
