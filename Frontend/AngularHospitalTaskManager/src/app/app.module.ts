@@ -19,14 +19,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DxSchedulerModule } from 'devextreme-angular';
-import { StatuscenterComponent } from './components/statuscenter/statuscenter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
-    routesComponent,
-    StatuscenterComponent,
+    routesComponent
   ],
   imports: [
     BrowserModule,
