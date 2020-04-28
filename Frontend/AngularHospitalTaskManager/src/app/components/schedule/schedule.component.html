@@ -27,7 +27,7 @@
         <dxi-resource 
             fieldExpr="staffId" 
             [allowMultiple]="true"
-            [dataSource]="staffData" 
+            [dataSource]="staffViewModelData" 
             label="Personal">
         </dxi-resource>
         <dxi-resource 
@@ -45,7 +45,7 @@
         <div *dxTemplate="let employee of 'resourceCellTemplate'">
             <div>
                 <h4>{{employee.text}}</h4>
-                <!-- <p>Arbetstid in hit</p> -->
+                <p>Arbetstid in hit</p>
             </div>
         </div>
     
@@ -91,4 +91,10 @@
 
 <div class="statusbox" aria-colspan="3">
     <app-statuscenter [scheduledProcedureData]="scheduledProcedureData"></app-statuscenter>
+</div>
+
+
+<!-- TODO- BRYT UT DETTA TILL EGEN FEATURE OCH FIXA -->
+<div class="availableStaffListBox">
+    <app-available-staff-list></app-available-staff-list>
 </div>

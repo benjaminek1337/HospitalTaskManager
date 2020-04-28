@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 import { DevExtremeModule } from "devextreme-angular";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from '@angular/material/sidenav'; 
-import { ReactiveFormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { HttpClientModule } from "@angular/common/http"
 import { MatFormFieldModule } from "@angular/material/form-field"
 import { MatInputModule } from "@angular/material/input"
 import { MatSelectModule } from "@angular/material/select"
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule, routesComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { DxSchedulerModule } from 'devextreme-angular';
 import { StatuscenterComponent } from './components/statuscenter/statuscenter.component';
+import { AvailableStaffListComponent } from './components/available-staff-list/available-staff-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { StatuscenterComponent } from './components/statuscenter/statuscenter.co
     SideNavComponent,
     routesComponent,
     StatuscenterComponent,
+    AvailableStaffListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { StatuscenterComponent } from './components/statuscenter/statuscenter.co
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    DxSchedulerModule
+    DxSchedulerModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

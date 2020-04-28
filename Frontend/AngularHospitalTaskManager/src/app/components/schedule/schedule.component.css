@@ -13,7 +13,18 @@
 }
 
 .statusbox{
-    background-color: white;
+    background-color:#fafafa ;
+    border-style: solid;
+    border-color:rgb(219, 219, 219);
+    border-width: 2px;
+    float:right;
+    width:24.3%;
+    margin-right:0.3%;
+    box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+}
+
+.availableStaffListBox{
+    background-color:#fafafa ;
     border-style: solid;
     border-color:rgb(219, 219, 219);
     border-width: 2px;
@@ -36,9 +47,22 @@
 }
 
 ::ng-deep .workTime{
-    background-color:#c3f5c4;
+    background-color:#e5f3e5;
 }
 
+::ng-deep .workTimeStart{
+    background-color:#e5f3e5;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: rgb(163, 163, 163);
+}
+
+::ng-deep .workTimeEnded{
+    background-color:white;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: rgb(163, 163, 163);
+}
 ul {
     list-style-type: none;
     padding: 0;
