@@ -1,0 +1,45 @@
+.statusBox h1{
+    text-align: center;
+    background-color: rgb(243, 208, 208);
+    padding-top: 11px;
+    padding-bottom: 9px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color:rgb(219, 219, 219);
+}
+
+.statusBox p{
+margin:0px;
+}
+
+.statusBox li{
+    border-style: solid;
+    border-width: 1px;
+    border-color:rgb(219, 219, 219);
+    background-color: white;
+    margin-bottom: 10px;
+    padding:10px;
+    box-shadow: 0px 3px 6px -4px rgba(0,0,0,0.50);
+}
+
+.statusBox li:hover{
+    border-color:#bfbfbf;
+}
+
+.statusBox ul{
+list-style: none;
+margin-right:10px;
+margin-left:10px;
+padding:0px;
+}
+
+.statusBox h4{
+    margin:0px;
+    margin-bottom:5px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.separator {
+    flex: 1 1 auto;
+}

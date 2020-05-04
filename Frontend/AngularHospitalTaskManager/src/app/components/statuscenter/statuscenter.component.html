@@ -1,0 +1,25 @@
+<div class=statusBox>
+    <h1>Avvikelser</h1>
+    <ul>
+        <li *ngFor="let item of GetSortedDeviations(); let i = index">
+
+            <div class="deviationHeader">
+                <h4>{{item.procedure}}</h4>
+                <div *ngIf="item.hasDeviated === 1">
+                    <p>Avvikelse skedde för {{ item.minutesLate }} minuter sedan</p>
+                </div>
+                <div *ngIf="item.hasDeviated === 0">
+                    <p>Avvikelse sker om {{ item.minutesLate }} minuter</p>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="item.staff.count != 0">
+                <p *ngFor="let st of item.staff; let i = index">
+                    {{ st.firstName + " " + st.lastName }} är frånvarande <br>
+                    {{ st.phoneNr }}
+                </p>
+
+            </div>
+        </li>
+    </ul>
+</div>
