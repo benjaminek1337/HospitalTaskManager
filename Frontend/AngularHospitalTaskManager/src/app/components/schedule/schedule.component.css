@@ -2,14 +2,20 @@
     max-width: 25px;
 }
 
+/* ::ng-deep .dx-scheduler-cell-sizes-vertical {
+    max-height: 55px;
+} */
+
 /* ::ng-deep .dx-scheduler {
     width: 74%;
 } */
 
 .scheduler{
     float:left;
-    width:75%;
+    width:80%;
     box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+    max-height: 92.8vh;
+    overflow: auto;
 }
 
 .statusbox{
@@ -17,10 +23,13 @@
     border-style: solid;
     border-color:rgb(219, 219, 219);
     border-width: 2px;
-    float:right;
-    width:24.3%;
     margin-right:0.3%;
     box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+
+    overflow: auto;
+    min-height:auto;
+    max-height:46vh;
+
 }
 
 .availableStaffListBox{
@@ -28,19 +37,40 @@
     border-style: solid;
     border-color:rgb(219, 219, 219);
     border-width: 2px;
-    float:right;
-    width:24.3%;
     margin-right:0.3%;
     box-shadow: 0px 4px 8px -4px rgba(0,0,0,0.50);
+
+    overflow: auto;
+    min-height:auto;
+    max-height:46vh;
+
 }
 
-/* ::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-date-table-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-header-scrollable {  
-    margin-left: 200px;  
-}  
+/* .table {
+    width:100%;
+    height:100%;
+    display: table;
+    border-spacing: 2px;
+}
 
-::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-group-table, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable:before {  
-    width: 200px;  
-}   */
+.row
+{
+    display: table-row;
+} */
+
+.wrapper{
+    width:19.3%;
+    height: 300px;
+    float:right;
+}
+
+/* ::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-date-table-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-header-scrollable {
+    margin-left: 200px;
+}
+
+::ng-deep .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-group-table, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable, .dx-scheduler-timeline.dx-scheduler-work-space-grouped[dx-group-column-count='1'] .dx-scheduler-sidebar-scrollable:before {
+    width: 200px;
+} */
 
 ::ng-deep .notWorkTime{
     background-color: white;
@@ -63,6 +93,45 @@
     border-left-width: 2px;
     border-left-color: rgb(163, 163, 163);
 }
+
+::ng-deep .workTimeNotOnSite{
+    background-color:#f0f0f0;
+}
+
+::ng-deep .workTimeStartNotOnSite{
+    background-color:#f0f0f0;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: rgb(163, 163, 163);
+}
+
+::ng-deep .workTimeEndedNotOnSite{
+    background-color:white;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: rgb(163, 163, 163);
+}
+
+.dot-green {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(125, 211, 144);
+    border-radius: 50%;
+    float:left;
+    margin-top:10px;
+    margin:5px;
+  }
+
+.dot-yellow {
+    height: 10px;
+    width: 10px;
+    background-color: rgb(231, 230, 131);
+    border-radius: 50%;
+    float:left;
+    margin-top:10px;
+    margin:5px;
+}
+
 ul {
     list-style-type: none;
     padding: 0;

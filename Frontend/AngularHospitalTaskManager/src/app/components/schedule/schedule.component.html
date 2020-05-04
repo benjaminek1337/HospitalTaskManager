@@ -1,4 +1,4 @@
-<div class="scheduler" aria-colspan="9">
+<div class="scheduler">
     <dx-scheduler 
         [views]='["Dagtid"]' 
         [dataSource]="scheduledProcedureData" 
@@ -44,8 +44,10 @@
         <!-- In me arbetstid nedan -->
         <div *dxTemplate="let employee of 'resourceCellTemplate'">
             <div>
+                <span *ngIf="IsWorkHour(employee.id) == 'inside'" class="dot-green"></span>
+                <span *ngIf="IsWorkHour(employee.id) == 'outside'" class="dot-yellow"></span>
                 <h4>{{employee.text}}</h4>
-                <p>Arbetstid in hit</p>
+                <!-- <p>Arbetstid in hit</p> -->
             </div>
         </div>
     
@@ -53,9 +55,12 @@
             <h4 *ngIf="time.text.includes(':00') " style="color:black;">{{time.text.substring(0,2)}}</h4>
         </div>
     
-        <div *dxTemplate="let model of 'appointmentTemplate'">
+        <div class="appointmentTemplate" *dxTemplate="let model of 'appointmentTemplate'">
             <div *ngIf="model.appointmentData.statusId != null">
-                <p>{{ (model.appointmentData.text) }}</p>  <p>{{ (model.appointmentData.startDate | date:'shortTime') + ' - ' + (model.appointmentData.endDate | date:'shortTime') }}</p>
+                <p>{{ (model.appointmentData.text) }}</p>  
+                <p>{{ (model.appointmentData.startDate | date:'HH:mm') 
+                    + ' - ' + 
+                    (model.appointmentData.endDate | date:'HH:mm') }}</p>
             </div>
         </div>
     
@@ -70,11 +75,16 @@
                     <h4>Bemanning:</h4>
                     <ul>
                         <li *ngFor="let item of model.appointmentData.staffId; let i = index">
-                            <p class="tooltipTextDeviation" *ngIf="GetProcedureStaff(item).onSite == false
-                            && model.appointmentData.statusId == 3">{{GetProcedureStaff(item).text}} är frånvarande.<br>
-                                Telefonnr: {{GetEmployee(item).phoneNr}} <br>
+                            <p class="tooltipTextDeviation" *ngIf="GetStaffPresenceStatus(item).onSite == false
+                            && model.appointmentData.statusId == 3">
+                                {{GetEmployee(item).firstName + " " + GetEmployee(item).lastName}} är frånvarande.
+                                <br>
+                                Telefonnr: {{GetEmployee(item).phoneNr}} 
+                                <br>
                             </p>
-                            <p *ngIf="model.appointmentData.statusId != 3">{{GetProcedureStaff(item).text}}</p>
+                            <p *ngIf="model.appointmentData.statusId != 3 || GetStaffPresenceStatus(item).onSite == true">
+                                {{GetEmployee(item).firstName + " " + GetEmployee(item).lastName}}
+                            </p>
                         </li>
     
                     </ul>
@@ -89,12 +99,17 @@
     </dx-scheduler>
 </div>
 
-<div class="statusbox" aria-colspan="3">
-    <app-statuscenter [scheduledProcedureData]="scheduledProcedureData"></app-statuscenter>
-</div>
-
-
-<!-- TODO- BRYT UT DETTA TILL EGEN FEATURE OCH FIXA -->
-<div class="availableStaffListBox">
-    <app-available-staff-list></app-available-staff-list>
+<div class="wrapper">
+    <div class="table">
+        <div class="row">
+            <div class="statusbox" aria-colspan="3">
+                <app-statuscenter [scheduledProcedureData]="scheduledProcedureData" [scheduleData]="scheduleData"></app-statuscenter>
+            </div>
+        </div>
+        <div class="row">
+            <div class="availableStaffListBox">
+                <app-available-staff-list></app-available-staff-list>
+            </div>
+        </div>
+    </div>
 </div>

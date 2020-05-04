@@ -1,18 +1,25 @@
 <div class=statusBox>
     <h1>Avvikelser</h1>
     <ul>
-        <!-- <li *ngFor="let item of GetDeviantProceduresStatus(); let i = index">
-            <p>Procedur: {{item.text}} avviker</p>
-        </li> -->
-        <!-- <li *ngFor="let item of GetAbsentStaff(); let i = index">
-            <p>Personal {{item.firstName}} är frånvarande</p>
-        </li> -->
+        <li *ngFor="let item of GetSortedDeviations(); let i = index">
 
-        <li>
-            <p>Procedur Knäskålsrekonstruktion: avvikelse frånvaro</p>
-        </li>
-        <li>
-            <p>Harry Potter är frånvarande från procedur Knäskålsrekonstruktion</p>
+            <div class="deviationHeader">
+                <h4>{{item.procedure}}</h4>
+                <div *ngIf="item.hasDeviated === 1">
+                    <p>Avvikelse skedde för {{ item.minutesLate }} minuter sedan</p>
+                </div>
+                <div *ngIf="item.hasDeviated === 0">
+                    <p>Avvikelse sker om {{ item.minutesLate }} minuter</p>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="item.staff.count != 0">
+                <p *ngFor="let st of item.staff; let i = index">
+                    {{ st.firstName + " " + st.lastName }} är frånvarande <br>
+                    {{ st.phoneNr }}
+                </p>
+
+            </div>
         </li>
     </ul>
 </div>

@@ -39,32 +39,65 @@ export class ScheduleComponent {
     polling: any;
     ngOnInit() {
         this.CheckProcedureStatus();
-        this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60);
+        this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
     }
 
     ngOnDestroy() {
         clearInterval(this.polling);
     }
 
+    IsWorkHour(id:number){
+        let schedule:Schedule = this.scheduleData.find(s => s.staffId == id);
+        if(schedule.startDate <= this.currentDate && schedule.endDate >= this.currentDate && schedule.onSite == true){
+            return "inside";
+        }
+        else if(schedule.startDate >= this.currentDate || schedule.endDate <= this.currentDate && schedule.onSite == true){
+            return "outside";
+        }
+        else{
+            return "not";
+        }
+
+    }
+
 
     IsWorkHours(data:any, className:string) {
         let schedule = this.scheduleData.find(s => s.staffId == data.groups.staffId);
-
-        if (schedule.startDate < data.endDate && data.startDate < schedule.endDate){
-            if(data.startDate <= schedule.startDate ){
-                className="workTimeStart";
+        if(this.IsWorkHour(data.groups.staffId) == "inside"){
+            if (schedule.startDate < data.endDate && data.startDate < schedule.endDate){
+                if(data.startDate <= schedule.startDate ){
+                    className="workTimeStart";
+                }
+                else{
+                    className="workTime";
+                }
+                return className;
             }
             else{
-                className="workTime";
+                if(data.startDate <= schedule.endDate && data.startDate >= schedule.startDate)
+                    className="workTimeEnded";
+                else
+                    className="notWorkTime";
+                return className;
             }
-            return className;
         }
         else{
-            if(data.startDate <= schedule.endDate && data.startDate >= schedule.startDate)
-                className="workTimeEnded";
-            else
-                className="notWorkTime";
-            return className;
+            if (schedule.startDate < data.endDate && data.startDate < schedule.endDate){
+                if(data.startDate <= schedule.startDate ){
+                    className="workTimeStartNotOnSite";
+                }
+                else{
+                    className="workTimeNotOnSite";
+                }
+                return className;
+            }
+            else{
+                if(data.startDate <= schedule.endDate && data.startDate >= schedule.startDate)
+                    className="workTimeEndedNotOnSite";
+                else
+                    className="notWorkTime";
+                return className;
+            }
         }
     }
     
@@ -79,38 +112,44 @@ export class ScheduleComponent {
         return Query(this.staffData).filter(["id", "=", id]).toArray()[0];
     }
 
-    GetProcedureStaff(id:number){
-        return Query(this.staffViewModelData).filter(["id", "=", id]).toArray()[0];
+    GetStaffPresenceStatus(id:number){
+        return Query(this.scheduleData).filter(["staffId", "=", id]).toArray()[0];
     }
 
     GetProcedureStatus(id:number){
         return Query(this.statusData).filter(["id", "=", id]).toArray()[0];
     }
 
-
-
-    //HÄR INNE SKA DU JÄVLAR I MIG GÖRA GREJER IMORN FÖR ATT SE INNAN SAKER GÅR ÅT HELVETE (RÖTT NÄR KENTTÄ ÄR BAKIS INNAN SKIFTET) 
     CheckProcedureStatus() {
         this.scheduledProcedureData.forEach(p => {
-            let staff = this.staffData.find(s => s.id == p.staffId.find(id => id == s.id))
-            let schedule = this.scheduleData.find(s => s.staffId == staff.id); //Hitta sätt att bomma procedur på en gång om det ligger utanför schematid
-            if (p.startDate > this.currentDate) {
-                p.statusId = 1;
-            }
-            else if (schedule.onSite == false) {
-                if (p.startDate < this.currentDate) {
-                    p.statusId = 3;
-                    //Här finns de go plats för att signalera backend att avvikelse sker
-                    //och därgenom slänga ut lite notiser
+            let staffs = this.staffData.filter(s => s.id == p.staffId.find(id => id == s.id))
+            for (let i = 0; i < staffs.length; i++) {
+                const staff = staffs[i];
+                let schedule = this.scheduleData.find(s => s.staffId == staff.id);
+
+                if (p.startDate > this.currentDate) {
+                    p.statusId = 1;
                 }
-            }
-            else if (schedule.onSite) {
-                if (p.startDate < this.currentDate && p.endDate > this.currentDate) {
-                    p.statusId = 2;
+                if (schedule.onSite == false) {
+                    if (p.startDate < this.currentDate) {
+                        p.statusId = 3;
+                        break;
+                        //TODO SEN kanske se till att 3600000 är justerbar till preferens ist för fast siffra. DB-post?
+                        //Signalera bakänden att problemz sker
+                    }
+                    else if(p.startDate.getTime() < this.currentDate.getTime() + 3600000){
+                        p.statusId=2;
+                        break;
+                    }
                 }
-                else if (p.endDate < this.currentDate) {
-                    p.statusId = 4;
-                }
+                // else if (schedule.onSite) {
+                //     if (p.startDate < this.currentDate && p.endDate > this.currentDate) {
+                //         p.statusId = 2;
+                //     }
+                //     else if (p.endDate < this.currentDate) {
+                //         p.statusId = 4;
+                //     }
+                // }
             }
         })
     };

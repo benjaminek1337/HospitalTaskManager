@@ -1,7 +1,7 @@
 <div class="availableBox">
     <h3>Tillgänglig personal på avdelningen</h3>
     <input type="text" class="searchBar" [(ngModel)]="search" placeholder="Sök i listan...">
-    <div *ngIf="availableStaff.length > 0">
+    <div *ngIf="availableStaff.length != 0">
         <h2>På arbetstid</h2>
         <ul>
             <li *ngFor="let item of availableStaff | filter:search">
@@ -9,7 +9,6 @@
             </li>
         </ul>
     </div>
-    <p *ngIf="availableStaff.length == 0"></p>
     <div *ngIf="availableStaffOWH.length != 0">
         <h2>Utanför arbetstid</h2>
         <ul>

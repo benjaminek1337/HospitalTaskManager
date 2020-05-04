@@ -28,8 +28,17 @@ export class AvailableStaffListComponent implements OnInit {
     this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours();
      }
 
-  ngOnInit(): void {
-  }
+     interval1: any;
+     interval2: any;
+     ngOnInit() {
+         this.interval1 = setInterval(() => { this.availableStaff = this.GetAvailableStaff(); }, 60000);
+         this.interval2 = setInterval(() => { this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours(); }, 60000);
+     }
+ 
+     ngOnDestroy() {
+         clearInterval(this.interval1);
+         clearInterval(this.interval2)
+     }
 
   GetAvailableStaff(){
     let availableStaff:Staff[] = [];
@@ -46,9 +55,9 @@ export class AvailableStaffListComponent implements OnInit {
         {
           isAvailable = false;
         }
-        else if(this.currentTime < schedule.startDate || this.currentTime > schedule.endDate){
-          isAvailable = false;
-        }
+      }
+      if(this.currentTime < schedule.startDate || this.currentTime > schedule.endDate){
+        isAvailable = false;
       }
       if(isAvailable && schedule.onSite){
         availableStaff.push(staff);
@@ -72,9 +81,9 @@ export class AvailableStaffListComponent implements OnInit {
         {
           isAvailable = false;
         }
-        else if(this.currentTime > schedule.startDate && this.currentTime < schedule.endDate){
-          isAvailable = false;
-        }
+      }
+      if(this.currentTime > schedule.startDate && this.currentTime < schedule.endDate){
+        isAvailable = false;
       }
       if(isAvailable && schedule.onSite){
         availableStaffOWH.push(staff);
