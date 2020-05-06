@@ -14,9 +14,24 @@ namespace HospitalTaskManagerWebAPI.Data
             this.context = context;
         }
 
-        public List<AccessLog> GetAllAccesslogs()
+        public List<ScheduledProcedure> GetScheduledProcedures()
         {
-            return context.AccessLog.ToList();
+            throw new NotImplementedException();
+        }
+
+        public List<Procedure> GetTodaysProcedures()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Schedule> GetTodaysSchedule()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Staff> GetTodaysStaff()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -23,13 +23,14 @@ import { DxSchedulerModule } from 'devextreme-angular';
 import { StatuscenterComponent } from './components/statuscenter/statuscenter.component';
 import { AvailableStaffListComponent } from './components/available-staff-list/available-staff-list.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
     routesComponent,
     StatuscenterComponent,
-    AvailableStaffListComponent
+    AvailableStaffListComponent,
   ],
   imports: [
     BrowserModule,

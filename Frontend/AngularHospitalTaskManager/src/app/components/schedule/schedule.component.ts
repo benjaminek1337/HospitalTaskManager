@@ -13,7 +13,6 @@ import { locale, loadMessages } from 'devextreme/localization';
 
 export class ScheduleComponent {
     procedureData: Procedure[];
-    staffViewModelData: StaffViewModel[];
     scheduleData: Schedule[];
     scheduledProcedureData: ScheduledProcedure[];
     statusData: ProcedureStatus[];
@@ -25,19 +24,22 @@ export class ScheduleComponent {
     shadeUntilCurrentTime = true;
 
 
-    constructor(service: Service) {
-        this.procedureData = service.getProcedures();
-        this.staffData = service.getEmployees();
-        this.staffViewModelData = service.getStaffs();
-        this.scheduleData = service.getSchedule();
-        this.scheduledProcedureData = service.getScheduledProcedures();
-        this.statusData = service.getStatus();
-
-        locale(navigator.language);
+    constructor(private service: Service) {
     }
 
     polling: any;
     ngOnInit() {
+        //this.staffData = this.service.getEmployees();
+        this.service.fungeraHoraSatan()
+            .subscribe(data => this.staffData = data);
+        this.procedureData = this.service.getProcedures();
+        this.scheduleData = this.service.getSchedule();
+        this.scheduledProcedureData = this.service.getScheduledProcedures();
+        this.statusData = this.service.getStatus();
+
+
+        locale(navigator.language);
+
         this.CheckProcedureStatus();
         this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
     }
@@ -59,7 +61,6 @@ export class ScheduleComponent {
         }
 
     }
-
 
     IsWorkHours(data:any, className:string) {
         let schedule = this.scheduleData.find(s => s.staffId == data.groups.staffId);

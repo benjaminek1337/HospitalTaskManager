@@ -10,17 +10,12 @@ import { kMaxLength } from 'buffer';
 })
 export class StatuscenterComponent implements OnInit {
 
-  //scheduleData:Schedule[];
-  staffData:Staff[];
-
   @Input()scheduledProcedureData:ScheduledProcedure[];
   @Input()scheduleData:Schedule[];
+  @Input()staffData:Staff[];
   currentDate: Date = new Date();
 
-  constructor(service:Service) {
-    //this.scheduleData = service.getSchedule();
-    this.staffData = service.getEmployees();
-  }
+  constructor(service:Service) {}
 
 
   interval1: any;

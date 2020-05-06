@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HospitalTaskManagerWebAPI.Data;
+using HospitalTaskManagerWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace HospitalTaskManagerWebAPI.Controllers
 {
@@ -11,11 +10,32 @@ namespace HospitalTaskManagerWebAPI.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IRepository repo;
+
+        public ValuesController(IRepository repo)
+        {
+            this.repo = repo;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Staff>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return repo.GetTodaysStaff();
+        }
+
+        [HttpGet]
+        [Route("Schedules")]
+        public ActionResult<List<Schedule>> GetSchedule()
+        {
+            return repo.GetTodaysSchedule();
+        }
+
+        [HttpGet]
+        [Route("ScheduledProcedures")]
+        public ActionResult<List<ScheduledProcedure>> GetScheduledProcedures()
+        {
+            return repo.GetScheduledProcedures();
         }
 
         // GET api/values/5

@@ -9,7 +9,9 @@ namespace HospitalTaskManagerWebAPI.Models
     {
         public int ID { get; set; }
         public int StaffID { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public bool OnSite { get; set; }
+        public IList<ScheduledProcedure> ScheduledProcedures { get; set; }
     }
 }

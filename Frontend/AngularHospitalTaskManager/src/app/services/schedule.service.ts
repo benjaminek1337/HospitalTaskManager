@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export class Procedure {
     id: number;
@@ -8,7 +10,7 @@ export class Procedure {
     endDate: Date;
 }
 
-export class Staff {
+export interface Staff {
     firstName: string;
     lastName: string;
     id: number;
@@ -339,6 +341,13 @@ let departmentData: Dept[] = [{
 
 @Injectable()
 export class Service {
+
+    http:HttpClient;
+    constructor(http: HttpClient){
+        this.http = http;
+     }
+
+
     getProcedures() {
         return procedureData;
     }
@@ -404,7 +413,16 @@ export class Service {
     getStatus() {
         return procedureStatusData;
     }
+
+    url:string = "https://localhost:44336/api/";
+    filepath:string = "../test.json";
+
     getEmployees() {
         return staffData;
     }
+
+    fungeraHoraSatan():Observable<Staff[]>{
+        return this.http.get<Staff[]>(this.url + "values");
+    }
+
 }

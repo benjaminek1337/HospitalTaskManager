@@ -8,6 +8,9 @@ namespace HospitalTaskManagerWebAPI.Data
 {
     public interface IRepository
     {
-        List<AccessLog> GetAllAccesslogs();
+        List<Staff> GetTodaysStaff();
+        List<Schedule> GetTodaysSchedule();
+        List<Procedure> GetTodaysProcedures();
+        List<ScheduledProcedure> GetScheduledProcedures();
     }
 }

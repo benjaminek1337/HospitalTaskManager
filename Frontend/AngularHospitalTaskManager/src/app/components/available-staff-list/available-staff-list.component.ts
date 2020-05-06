@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Service, Staff, Schedule, ScheduledProcedure } from "../../services/schedule.service"
+import { Component, OnInit, Input } from '@angular/core';
+import { Staff, Schedule, ScheduledProcedure } from "../../services/schedule.service"
 import { DxoSearchPanelModule } from 'devextreme-angular/ui/nested';
 
 @Component({
@@ -9,44 +9,45 @@ import { DxoSearchPanelModule } from 'devextreme-angular/ui/nested';
 })
 export class AvailableStaffListComponent implements OnInit {
 
-  staffData:Staff[];
-  scheduleData:Schedule[];
-  scheduledProcedureData:ScheduledProcedure[];
+  // staffData:Staff[];
+  // scheduleData:Schedule[];
+  // scheduledProcedureData:ScheduledProcedure[];
+
+  @Input()_scheduledProcedureData:ScheduledProcedure[];
+  @Input()_scheduleData:Schedule[];
+  @Input()_staffData:Staff[];
+
   availableStaff:Staff[];
   availableStaffOWH:Staff[];
 
   currentTime:Date = new Date();
   
-
   search;
 
-  constructor(service:Service) {
-    this.staffData = service.getEmployees();
-    this.scheduleData = service.getSchedule();
-    this.scheduledProcedureData = service.getScheduledProcedures();
-    this.availableStaff = this.GetAvailableStaff();
-    this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours();
-     }
+  constructor() {
+  }
 
-     interval1: any;
-     interval2: any;
-     ngOnInit() {
-         this.interval1 = setInterval(() => { this.availableStaff = this.GetAvailableStaff(); }, 60000);
-         this.interval2 = setInterval(() => { this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours(); }, 60000);
-     }
- 
-     ngOnDestroy() {
-         clearInterval(this.interval1);
-         clearInterval(this.interval2)
-     }
+  interval1: any;
+  interval2: any;
+  ngOnInit() {
+      this.availableStaff = this.GetAvailableStaff();
+      this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours();
+      this.interval1 = setInterval(() => { this.availableStaff = this.GetAvailableStaff(); }, 60000);
+      this.interval2 = setInterval(() => { this.availableStaffOWH = this.GetStaffOnSiteOutsideWorkhours(); }, 60000);
+  }
+
+  ngOnDestroy() {
+      clearInterval(this.interval1);
+      clearInterval(this.interval2)
+  }
 
   GetAvailableStaff(){
     let availableStaff:Staff[] = [];
-    for (let i = 0; i < this.staffData.length; i++) {
-      const staff = this.staffData[i];
+    for (let i = 0; i < this._staffData.length; i++) {
+      const staff = this._staffData[i];
 
-      let scheduledProcedures:ScheduledProcedure[] = this.scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
-      let schedule = this.scheduleData.find(g => g.staffId == staff.id)
+      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
+      let schedule = this._scheduleData.find(g => g.staffId == staff.id)
       let isAvailable:boolean = true;
 
       for (let j = 0; j < scheduledProcedures.length; j++) {
@@ -68,11 +69,11 @@ export class AvailableStaffListComponent implements OnInit {
 
   GetStaffOnSiteOutsideWorkhours(){
     let availableStaffOWH:Staff[] = [];
-    for (let i = 0; i < this.staffData.length; i++) {
-      const staff = this.staffData[i];
+    for (let i = 0; i < this._staffData.length; i++) {
+      const staff = this._staffData[i];
 
-      let scheduledProcedures:ScheduledProcedure[] = this.scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
-      let schedule = this.scheduleData.find(g => g.staffId == staff.id)
+      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
+      let schedule = this._scheduleData.find(g => g.staffId == staff.id)
       let isAvailable:boolean = true;
 
       for (let j = 0; j < scheduledProcedures.length; j++) {

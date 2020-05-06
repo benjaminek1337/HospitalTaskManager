@@ -13,25 +13,24 @@ namespace HospitalTaskManagerWebAPI.Data
             : base(options)
         {
         }
-
-        public DbSet<AccessLog> AccessLog { get; set; }
-        public DbSet<Procedure> Procedure { get; set; }
-        public DbSet<Schedule> Schedule { get; set; }
-        public DbSet<Staff> Staff { get; set; }
-        public DbSet<StaffProcedure> StaffProcedure { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Procedure> Procedures { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<ScheduledProcedure> StaffProcedures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StaffProcedure>()
-                .HasKey(sp => new { sp.StaffID, sp.ProcedureID });
-            modelBuilder.Entity<StaffProcedure>()
-                .HasOne(sp => sp.Staff)
-                .WithMany(s => s.StaffProcedures)
-                .HasForeignKey(sp => sp.StaffID);
-            modelBuilder.Entity<StaffProcedure>()
+            modelBuilder.Entity<ScheduledProcedure>()
+                .HasKey(sp => new { sp.ScheduleId, sp.ProcedureId });
+            modelBuilder.Entity<ScheduledProcedure>()
+                .HasOne(sp => sp.Schedule)
+                .WithMany(s => s.ScheduledProcedures)
+                .HasForeignKey(sp => sp.ScheduleId);
+            modelBuilder.Entity<ScheduledProcedure>()
                 .HasOne(sp => sp.Procedure)
-                .WithMany(s => s.StaffProcedures)
-                .HasForeignKey(sp => sp.ProcedureID);
+                .WithMany(s => s.ScheduledProcedures)
+                .HasForeignKey(sp => sp.ProcedureId);
         }
     }
 }

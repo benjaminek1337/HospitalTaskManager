@@ -8,10 +8,10 @@ namespace HospitalTaskManagerWebAPI.Models
     public class Procedure
     {
         public int ID { get; set; }
-        public string Department { get; set; }
-        public string ProcedureType { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public ICollection<StaffProcedure> StaffProcedures { get; set; }
+        public int DepartmentId { get; set; }
+        public string ProcedureName { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public IList<ScheduledProcedure> ScheduledProcedures { get; set; }
     }
 }

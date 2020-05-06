@@ -27,7 +27,7 @@
         <dxi-resource 
             fieldExpr="staffId" 
             [allowMultiple]="true"
-            [dataSource]="staffViewModelData" 
+            [dataSource]="staffData" 
             label="Personal">
         </dxi-resource>
         <dxi-resource 
@@ -38,7 +38,7 @@
         </dxi-resource>
     
         <div *dxTemplate="let data of 'dataCellTemplate'" class="notWorkTime" [ngClass]="MarkWorkHours(data)">
-            <div  style="min-width: 200px; height: 100%;">&nbsp;</div>
+            <div  style="min-width: 25px; height: 100%;">&nbsp;</div>
         </div>
         
         <!-- In me arbetstid nedan -->
@@ -46,7 +46,7 @@
             <div>
                 <span *ngIf="IsWorkHour(employee.id) == 'inside'" class="dot-green"></span>
                 <span *ngIf="IsWorkHour(employee.id) == 'outside'" class="dot-yellow"></span>
-                <h4>{{employee.text}}</h4>
+                <h4>{{ GetEmployee(employee.id).firstName + " " + GetEmployee(employee.id).lastName }}</h4>
                 <!-- <p>Arbetstid in hit</p> -->
             </div>
         </div>
@@ -103,12 +103,20 @@
     <div class="table">
         <div class="row">
             <div class="statusbox" aria-colspan="3">
-                <app-statuscenter [scheduledProcedureData]="scheduledProcedureData" [scheduleData]="scheduleData"></app-statuscenter>
+                <app-statuscenter 
+                [scheduledProcedureData]="scheduledProcedureData" 
+                [scheduleData]="scheduleData"
+                [staffData]="staffData" >
+                </app-statuscenter>
             </div>
         </div>
         <div class="row">
             <div class="availableStaffListBox">
-                <app-available-staff-list></app-available-staff-list>
+                <app-available-staff-list
+                [_scheduledProcedureData]="scheduledProcedureData" 
+                [_scheduleData]="scheduleData"
+                [_staffData]="staffData">
+                </app-available-staff-list>
             </div>
         </div>
     </div>

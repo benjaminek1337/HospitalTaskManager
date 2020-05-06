@@ -23,11 +23,6 @@ namespace HospitalTaskManagerWebAPI.Controllers
         }
 
         // GET: api/Accesslogs
-        [HttpGet]
-        public ActionResult<IEnumerable<AccessLog>> GetAccesslog()
-        {
-            return repo.GetAllAccesslogs();
-        }
 
         // GET: api/Accesslogs/5
         //[HttpGet("{id}")]

@@ -10,6 +10,7 @@ namespace HospitalTaskManagerWebAPI.Models
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<StaffProcedure> StaffProcedures { get; set; }
+        public string PhoneNr { get; set; }
+        public int DepartmentId { get; set; }
     }
 }
