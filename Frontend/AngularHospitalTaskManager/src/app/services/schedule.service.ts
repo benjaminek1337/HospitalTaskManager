@@ -105,6 +105,20 @@ let procedure_scheduleData: Procedure_Schedule[] = [
         scheduleId: 12,
         procedureId: 5,
         keyPerson: true
+    }, {
+        scheduleId: 16,
+        procedureId: 6,
+        keyPerson: true
+    },
+    {
+        scheduleId: 15,
+        procedureId: 8,
+        keyPerson: true
+    },
+    {
+        scheduleId: 15,
+        procedureId: 7,
+        keyPerson: true
     },
 
 ]
@@ -114,8 +128,8 @@ let procedureData: Procedure[] = [
         id: 1,
         text: "Operation",
         deptId: 1,
-        startDate: new Date(today.getTime() + 10 * 3600000),
-        endDate: new Date(today.getTime() + 15.5 * 3600000)
+        startDate: new Date(today.getTime() + 11 * 3600000),
+        endDate: new Date(today.getTime() + 14 * 3600000)
     }, {
         id: 2,
         text: "Spola lungor",
@@ -141,6 +155,20 @@ let procedureData: Procedure[] = [
         deptId: 1,
         startDate: new Date(today.getTime() + 15 * 3600000),
         endDate: new Date(today.getTime() + 17 * 3600000)
+    },
+    {
+        id: 6,
+        text: "Skrämma Benjamin",
+        deptId: 1,
+        startDate: new Date(today.getTime() + 8.5 * 3600000),
+        endDate: new Date(today.getTime() + 11 * 3600000)
+    },
+    {
+        id: 7,
+        text: "Skriva ut krumelurpiller",
+        deptId: 1,
+        startDate: new Date(today.getTime() + 11 * 3600000),
+        endDate: new Date(today.getTime() + 14 * 3600000)
     }
 
 ];
@@ -177,59 +205,24 @@ let scheduleData: Schedule[] = [
         id: 14
     },
     {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
+        startDate: new Date(today.getTime() + 6 * 3600000),
+        endDate: new Date(today.getTime() + 14 * 3600000),
         staffId: 6,
         id: 15
     }
     ,
     {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
+        startDate: new Date(today.getTime() + 8 * 3600000),
+        endDate: new Date(today.getTime() + 16 * 3600000),
         staffId: 7,
         id: 16
     }
     ,
     {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
+        startDate: new Date(today.getTime() + 16 * 3600000),
+        endDate: new Date(today.getTime() + 23 * 3600000),
         staffId: 8,
         id: 17
-    }
-    ,
-    {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
-        staffId: 9,
-        id: 18
-    }
-    ,
-    {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
-        staffId: 10,
-        id: 19
-    }
-    ,
-    {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
-        staffId: 11,
-        id: 20
-    }
-    ,
-    {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
-        staffId: 12,
-        id: 21
-    }
-    ,
-    {
-        startDate: new Date(today.getTime() + 0 * 3600000),
-        endDate: new Date(today.getTime() + 10 * 3600000),
-        staffId: 13,
-        id: 22
     }
 ];
 
@@ -240,7 +233,7 @@ let staffData: Staff[] = [
         phoneNr: "0729875641",
         id: 1,
         deptId: 1,
-        onSite: true
+        onSite: false
     }, {
         firstName: "Mattias",
         lastName: "Kenttä",
@@ -249,8 +242,8 @@ let staffData: Staff[] = [
         deptId: 1,
         onSite: true
     }, {
-        firstName: "Eva",
-        lastName: "Morlind",
+        firstName: "Lena-Maria",
+        lastName: "Öberg",
         phoneNr: "0729875641",
         id: 3,
         deptId: 1,
@@ -268,7 +261,7 @@ let staffData: Staff[] = [
         phoneNr: "0729875641",
         id: 5,
         deptId: 1,
-        onSite: true
+        onSite: false
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
@@ -277,60 +270,17 @@ let staffData: Staff[] = [
         deptId: 1,
         onSite: true
     }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
+        firstName: "Malin",
+        lastName: "Jönsson",
         phoneNr: "0729875641",
         id: 7,
         deptId: 1,
         onSite: true
     }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
+        firstName: "Emelie",
+        lastName: "Öhman",
         phoneNr: "0729875641",
         id: 8,
-        deptId: 1,
-        onSite: true
-    }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
-        phoneNr: "0729875641",
-        id: 9,
-        deptId: 1,
-        onSite: true
-    }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
-        phoneNr: "0729875641",
-        id: 10,
-        deptId: 1,
-        onSite: true
-    }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
-        phoneNr: "0729875641",
-        id: 11,
-        deptId: 1,
-        onSite: true
-    }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
-        phoneNr: "0729875641",
-        id: 12,
-        deptId: 1,
-        onSite: true
-    }, {
-        firstName: "Karl",
-        lastName: "Kvackzelius",
-        phoneNr: "0729875641",
-        id: 13,
-        deptId: 1,
-        onSite: true
-    }
-    , {
-        firstName: "Ksdfsfg",
-        lastName: "asdasd",
-        phoneNr: "0729875641",
-        id: 14,
         deptId: 1,
         onSite: true
     }
@@ -349,15 +299,15 @@ export class Service {
         this.http = http;
      }
 
-    getSchedule():Observable<Schedule[]> {
-        return this.http.get<Schedule[]>(this.url + "values/schedules");
+    getSchedule() {
+        return scheduleData;
     }
     getDepartment() {
         return departmentData;
     }
 
-    getProcedures():Observable<Procedure[]> {
-        return this.http.get<Procedure[]>(this.url + "values/procedures");
+    getProcedures() {
+        return procedureData;
     }
 
     getProcedure_Schedule(){
@@ -374,8 +324,8 @@ export class Service {
         return staffData;
     }
 
-    GetStaff():Observable<Staff[]>{
-        return this.http.get<Staff[]>(this.url + "values");
+    GetStaff(){
+        return staffData;
     }
 
 }

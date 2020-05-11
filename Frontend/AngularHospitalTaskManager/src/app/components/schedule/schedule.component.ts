@@ -31,30 +31,16 @@ export class ScheduleComponent {
 
     polling: any;
     ngOnInit() {
-        this.AzynkronusKonstraaktor();
-        
-        alert("dfgjiofgj");
-
-    }
-
-    async GetStaffAsync(){
-
-        this.staffData = await this.service.GetStaff().toPromise().then(data => this.staffData = data as Staff[]);
-        this.scheduleData = await this.service.getSchedule().toPromise().then(data => this.scheduleData = data as Schedule[]);
-        this.procedureData = await this.service.getProcedures().toPromise().then(data => this.procedureData = data as Procedure[]);
+        this.staffData = this.service.GetStaff()
+        this.scheduleData = this.service.getSchedule()
+        this.procedureData = this.service.getProcedures();
         this.procedure_scheduleData = this.service.getProcedure_Schedule();
         this.scheduledProcedureData = this.getScheduledProcedures();
         this.statusData = this.service.getStatus();
         this.scheduledStaff = this.GetScheduledStaff();
         locale(navigator.language);
-        alert("först");
-    }
-
-    async AzynkronusKonstraaktor(){
-        await this.GetStaffAsync();
         this.CheckProcedureStatus();
-        this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
-        alert ("tvåa");
+        this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);        
     }
 
     ngOnDestroy() {
