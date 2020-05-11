@@ -45,9 +45,9 @@ export class AvailableStaffListComponent implements OnInit {
     let availableStaff:Staff[] = [];
     for (let i = 0; i < this._staffData.length; i++) {
       const staff = this._staffData[i];
-
-      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
-      let schedule = this._scheduleData.find(g => g.staffId == staff.id)
+      
+      let schedule = this._scheduleData.find(s => s.staffId == staff.id);
+      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id));
       let isAvailable:boolean = true;
 
       for (let j = 0; j < scheduledProcedures.length; j++) {
@@ -55,12 +55,13 @@ export class AvailableStaffListComponent implements OnInit {
         if(element.startDate <= this.currentTime && this.currentTime <= element.endDate)
         {
           isAvailable = false;
+          break;
         }
       }
-      if(this.currentTime < schedule.startDate || this.currentTime > schedule.endDate){
+      if(schedule == null || this.currentTime < schedule.startDate || this.currentTime > schedule.endDate){
         isAvailable = false;
       }
-      if(isAvailable && schedule.onSite){
+      if(isAvailable && staff.onSite){
         availableStaff.push(staff);
       }
     }
@@ -71,9 +72,9 @@ export class AvailableStaffListComponent implements OnInit {
     let availableStaffOWH:Staff[] = [];
     for (let i = 0; i < this._staffData.length; i++) {
       const staff = this._staffData[i];
-
-      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id))
-      let schedule = this._scheduleData.find(g => g.staffId == staff.id)
+      
+      let schedule = this._scheduleData.find(s => s.staffId == staff.id);
+      let scheduledProcedures:ScheduledProcedure[] = this._scheduledProcedureData.filter(p => p.staffId.find(id => id == staff.id));
       let isAvailable:boolean = true;
 
       for (let j = 0; j < scheduledProcedures.length; j++) {
@@ -81,12 +82,13 @@ export class AvailableStaffListComponent implements OnInit {
         if(element.startDate <= this.currentTime && this.currentTime <= element.endDate)
         {
           isAvailable = false;
+          break;
         }
       }
-      if(this.currentTime > schedule.startDate && this.currentTime < schedule.endDate){
+      if(schedule != null && this.currentTime > schedule.startDate && this.currentTime < schedule.endDate){
         isAvailable = false;
       }
-      if(isAvailable && schedule.onSite){
+      if(isAvailable && staff.onSite){
         availableStaffOWH.push(staff);
       }
     }

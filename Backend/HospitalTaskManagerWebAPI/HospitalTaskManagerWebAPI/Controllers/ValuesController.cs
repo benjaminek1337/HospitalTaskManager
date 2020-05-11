@@ -30,6 +30,12 @@ namespace HospitalTaskManagerWebAPI.Controllers
         {
             return repo.GetTodaysSchedule();
         }
+        [HttpGet]
+        [Route("Procedures")]
+        public ActionResult<List<Procedure>> GetProcedures()
+        {
+            return repo.GetTodaysProcedures();
+        }
 
         [HttpGet]
         [Route("ScheduledProcedures")]

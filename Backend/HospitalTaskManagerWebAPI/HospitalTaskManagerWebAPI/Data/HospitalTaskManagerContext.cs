@@ -17,7 +17,7 @@ namespace HospitalTaskManagerWebAPI.Data
         public DbSet<Procedure> Procedures { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Staff> Staffs { get; set; }
-        public DbSet<ScheduledProcedure> StaffProcedures { get; set; }
+        public DbSet<ScheduledProcedure> ScheduledProcedures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,28 @@ namespace HospitalTaskManagerWebAPI.Data
             modelBuilder.Entity<ScheduledProcedure>()
                 .HasOne(sp => sp.Schedule)
                 .WithMany(s => s.ScheduledProcedures)
-                .HasForeignKey(sp => sp.ScheduleId);
+                .HasForeignKey(sp => sp.ScheduleId)
+                .OnDelete(DeleteBehavior.Restrict);
             modelBuilder.Entity<ScheduledProcedure>()
                 .HasOne(sp => sp.Procedure)
                 .WithMany(s => s.ScheduledProcedures)
-                .HasForeignKey(sp => sp.ProcedureId);
+                .HasForeignKey(sp => sp.ProcedureId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Staff>()
+                .HasMany(s => s.Schedules)
+                .WithOne(sc => sc.Staff)
+                .HasForeignKey(s => s.StaffID);
+
+            modelBuilder.Entity<Department>()
+                .HasMany(d => d.Procedures)
+                .WithOne(p => p.Department)
+                .HasForeignKey(p => p.DepartmentId);
+            modelBuilder.Entity<Department>()
+                .HasMany(d => d.Staffs)
+                .WithOne(s => s.Department)
+                .HasForeignKey(s => s.DepartmentId);
+
         }
     }
 }

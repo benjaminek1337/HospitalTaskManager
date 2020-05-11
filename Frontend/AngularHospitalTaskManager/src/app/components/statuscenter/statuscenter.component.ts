@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Service, ScheduledProcedure, Schedule, Staff, StaffViewModel, Procedure_Schedule } from '../../services/schedule.service';
+import { Service, ScheduledProcedure, Schedule, Staff, Procedure_Schedule } from '../../services/schedule.service';
 import Query from "devextreme/data/query"
 import { kMaxLength } from 'buffer';
 
@@ -47,8 +47,7 @@ export class StatuscenterComponent implements OnInit {
     return goingToOrHasDeviated;
   }
 
-  GetSortedDeviations(){
-    let deviants = this.GetDeviantProceduresStatus();
+  GetSortedDeviations(deviants:any){
     deviants.sort((a, b) => a.hasDeviated - b.hasDeviated || a.minutesLate - b.minutesLate )
     return deviants
   }
@@ -66,7 +65,7 @@ export class StatuscenterComponent implements OnInit {
         const sta = procedure.staffId[j];
         let staff = this.staffData.find(s => s.id === sta);
         let schedule = this.scheduleData.find(s => s.staffId === sta);
-        if(schedule.onSite == false){
+        if(staff.onSite == false){
           absentees.push(staff);
         }
       }
@@ -80,7 +79,7 @@ export class StatuscenterComponent implements OnInit {
       };
       deviants.push(deviant)
     }
-    return deviants;
+    return this.GetSortedDeviations(deviants);
   }
 
 }

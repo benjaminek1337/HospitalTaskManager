@@ -9,6 +9,7 @@ namespace HospitalTaskManagerWebAPI.Models
     {
         public int ID { get; set; }
         public int DepartmentId { get; set; }
+        public Department Department { get; set; }
         public string ProcedureName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

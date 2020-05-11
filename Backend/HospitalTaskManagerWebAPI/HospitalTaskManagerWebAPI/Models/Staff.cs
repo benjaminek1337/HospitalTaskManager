@@ -12,5 +12,8 @@ namespace HospitalTaskManagerWebAPI.Models
         public string LastName { get; set; }
         public string PhoneNr { get; set; }
         public int DepartmentId { get; set; }
+        public Department Department { get; set; }
+        public bool OnSite { get; set; }
+        public List<Schedule> Schedules { get; set; }
     }
 }

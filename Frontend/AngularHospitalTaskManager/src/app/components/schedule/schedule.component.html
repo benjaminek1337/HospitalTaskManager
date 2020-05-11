@@ -27,7 +27,7 @@
         <dxi-resource 
             fieldExpr="staffId" 
             [allowMultiple]="true"
-            [dataSource]="staffData" 
+            [dataSource]="scheduledStaff" 
             label="Personal">
         </dxi-resource>
         <dxi-resource 
@@ -76,13 +76,14 @@
                     <ul>
                         <li *ngFor="let item of model.appointmentData.staffId; let i = index">
                             <p class="tooltipTextDeviation" *ngIf="GetStaffPresenceStatus(item).onSite == false
-                            && model.appointmentData.statusId == 3">
+                            && model.appointmentData.statusId !=1" >
                                 {{GetEmployee(item).firstName + " " + GetEmployee(item).lastName}} är frånvarande.
                                 <br>
                                 Telefonnr: {{GetEmployee(item).phoneNr}} 
                                 <br>
                             </p>
-                            <p *ngIf="model.appointmentData.statusId != 3 || GetStaffPresenceStatus(item).onSite == true">
+                            <p *ngIf="GetStaffPresenceStatus(item).onSite == true 
+                                || model.appointmentData.statusId == 1">
                                 {{GetEmployee(item).firstName + " " + GetEmployee(item).lastName}}
                             </p>
                         </li>

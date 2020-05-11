@@ -16,6 +16,7 @@ export interface Staff {
     id: number;
     deptId: number;
     phoneNr: string;
+    onSite:boolean;
 }
 
 export class Schedule {
@@ -23,7 +24,6 @@ export class Schedule {
     startDate: Date;
     endDate: Date;
     staffId: number;
-    onSite: boolean;
 }
 
 export class Dept {
@@ -45,11 +45,6 @@ export class ScheduledProcedure {
     staffId: number[];
     procedureId: number;
     statusId: number;
-}
-
-export class StaffViewModel {
-    text: string;
-    id: number;
 }
 
 export class ProcedureStatus {
@@ -119,7 +114,7 @@ let procedureData: Procedure[] = [
         id: 1,
         text: "Operation",
         deptId: 1,
-        startDate: new Date(today.getTime() + 13.5 * 3600000),
+        startDate: new Date(today.getTime() + 10 * 3600000),
         endDate: new Date(today.getTime() + 15.5 * 3600000)
     }, {
         id: 2,
@@ -155,42 +150,36 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 8.5 * 3600000),
         endDate: new Date(today.getTime() + 19 * 3600000),
         staffId: 1,
-        onSite: false,
         id: 10
     },
     {
         startDate: new Date(today.getTime() + 7 * 3600000),
         endDate: new Date(today.getTime() + 16 * 3600000),
         staffId: 2,
-        onSite: true,
         id: 11
     },
     {
         startDate: new Date(today.getTime() + 8 * 3600000),
         endDate: new Date(today.getTime() + 17 * 3600000),
         staffId: 3,
-        onSite: true,
         id: 12
     },
     {
         startDate: new Date(today.getTime() + 7 * 3600000),
         endDate: new Date(today.getTime() + 15 * 3600000),
         staffId: 4,
-        onSite: false,
         id: 13
     },
     {
         startDate: new Date(today.getTime() + 14 * 3600000),
         endDate: new Date(today.getTime() + 22 * 3600000),
         staffId: 5,
-        onSite: false,
         id: 14
     },
     {
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 6,
-        onSite: true,
         id: 15
     }
     ,
@@ -198,7 +187,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 7,
-        onSite: true,
         id: 16
     }
     ,
@@ -206,7 +194,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 8,
-        onSite: true,
         id: 17
     }
     ,
@@ -214,7 +201,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 9,
-        onSite: true,
         id: 18
     }
     ,
@@ -222,7 +208,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 10,
-        onSite: true,
         id: 19
     }
     ,
@@ -230,7 +215,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 11,
-        onSite: true,
         id: 20
     }
     ,
@@ -238,7 +222,6 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 12,
-        onSite: true,
         id: 21
     }
     ,
@@ -246,10 +229,8 @@ let scheduleData: Schedule[] = [
         startDate: new Date(today.getTime() + 0 * 3600000),
         endDate: new Date(today.getTime() + 10 * 3600000),
         staffId: 13,
-        onSite: true,
         id: 22
     }
-
 ];
 
 let staffData: Staff[] = [
@@ -258,79 +239,100 @@ let staffData: Staff[] = [
         lastName: "Ek",
         phoneNr: "0729875641",
         id: 1,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Mattias",
         lastName: "Kenttä",
         phoneNr: "0729875641",
         id: 2,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Eva",
         lastName: "Morlind",
         phoneNr: "0729875641",
         id: 3,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Harry",
         lastName: "Hormoz",
         phoneNr: "0729875641",
         id: 4,
-        deptId: 1
+        deptId: 1,
+        onSite: false
     }, {
         firstName: "Stina",
         lastName: "Wolter",
         phoneNr: "0729875641",
         id: 5,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 6,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 7,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 8,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 9,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 10,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 11,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 12,
-        deptId: 1
+        deptId: 1,
+        onSite: true
     }, {
         firstName: "Karl",
         lastName: "Kvackzelius",
         phoneNr: "0729875641",
         id: 13,
-        deptId: 1
+        deptId: 1,
+        onSite: true
+    }
+    , {
+        firstName: "Ksdfsfg",
+        lastName: "asdasd",
+        phoneNr: "0729875641",
+        id: 14,
+        deptId: 1,
+        onSite: true
     }
 ];
 
@@ -347,68 +349,19 @@ export class Service {
         this.http = http;
      }
 
-
-    getProcedures() {
-        return procedureData;
-    }
-    getStaffs() {
-        let staffViewModelData: StaffViewModel[] = [];
-
-        for (let i = 0; i < staffData.length; i++) {
-            const element = staffData[i];
-            let staffViewModel: StaffViewModel = new StaffViewModel();
-
-            staffViewModel = {
-                id: element.id,
-                text: element.firstName + " " + element.lastName
-            };
-
-            staffViewModelData.push(staffViewModel);
-        }
-        return staffViewModelData;
-    }
-    getSchedule() {
-        return scheduleData;
+    getSchedule():Observable<Schedule[]> {
+        return this.http.get<Schedule[]>(this.url + "values/schedules");
     }
     getDepartment() {
         return departmentData;
     }
-    getScheduledProcedures() {
-        let scheduledProcedureData: ScheduledProcedure[] = [];
-        for (let i = 0; i < procedure_scheduleData.length; i++) {
-            const element = procedure_scheduleData[i];
 
-            let procedure = procedureData.find(p => p.id == element.procedureId);
-            let schedule = procedure_scheduleData.filter(p => p.procedureId == element.procedureId);
+    getProcedures():Observable<Procedure[]> {
+        return this.http.get<Procedure[]>(this.url + "values/procedures");
+    }
 
-            let scheduleIds: number[] = [];
-
-            for (let j = 0; j < schedule.length; j++) {
-                try {
-                    const s = schedule[j];
-                    let staffSchedule = scheduleData.find(q => q.id == s.scheduleId);
-                    scheduleIds.push(staffSchedule.staffId);
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-
-            if (procedure != null) {
-                let scheduledProcedure = new ScheduledProcedure();
-
-                scheduledProcedure = {
-                    id: i,
-                    text: procedure.text,
-                    startDate: procedure.startDate,
-                    endDate: procedure.endDate,
-                    staffId: scheduleIds,
-                    procedureId: procedure.id,
-                    statusId: 1
-                }
-                scheduledProcedureData.push(scheduledProcedure);
-            }
-        }
-        return scheduledProcedureData.filter((obj, index, self) => self.findIndex(s => s.procedureId === obj.procedureId) === index);
+    getProcedure_Schedule(){
+        return procedure_scheduleData;
     }
     getStatus() {
         return procedureStatusData;
@@ -421,7 +374,7 @@ export class Service {
         return staffData;
     }
 
-    fungeraHoraSatan():Observable<Staff[]>{
+    GetStaff():Observable<Staff[]>{
         return this.http.get<Staff[]>(this.url + "values");
     }
 
