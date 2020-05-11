@@ -8,6 +8,7 @@ export class Procedure {
     text: string;
     startDate: Date;
     endDate: Date;
+    isHandled:Boolean;
 }
 
 export interface Staff {
@@ -26,7 +27,7 @@ export class Schedule {
     staffId: number;
 }
 
-export class Dept {
+export class Department {
     id: number;
     text: string;
 }
@@ -115,32 +116,37 @@ let procedureData: Procedure[] = [
         text: "Operation",
         deptId: 1,
         startDate: new Date(today.getTime() + 10 * 3600000),
-        endDate: new Date(today.getTime() + 15.5 * 3600000)
+        endDate: new Date(today.getTime() + 15.5 * 3600000),
+        isHandled:false
     }, {
         id: 2,
         text: "Spola lungor",
         deptId: 1,
         startDate: new Date(today.getTime() + 9 * 3600000),
-        endDate: new Date(today.getTime() + 11 * 3600000)
+        endDate: new Date(today.getTime() + 11 * 3600000),
+        isHandled:false
     }, {
         id: 3,
         text: "Öronkontroll",
         deptId: 1,
         startDate: new Date(today.getTime() + 17 * 3600000),
-        endDate: new Date(today.getTime() + 18 * 3600000)
+        endDate: new Date(today.getTime() + 18 * 3600000),
+        isHandled:false
     }, {
         id: 4,
         text: "Knäskålsrekonstruktion",
         deptId: 1,
         startDate: new Date(today.getTime() + 8 * 3600000),
-        endDate: new Date(today.getTime() + 12.5 * 3600000)
+        endDate: new Date(today.getTime() + 12.5 * 3600000),
+        isHandled:false
     },
     {
         id: 5,
         text: "Örfilning",
         deptId: 1,
         startDate: new Date(today.getTime() + 15 * 3600000),
-        endDate: new Date(today.getTime() + 17 * 3600000)
+        endDate: new Date(today.getTime() + 17 * 3600000),
+        isHandled:false
     }
 
 ];
@@ -336,7 +342,7 @@ let staffData: Staff[] = [
     }
 ];
 
-let departmentData: Dept[] = [{
+let departmentData: Department[] = [{
     id: 1,
     text: "Coola avdelningen"
 }];
@@ -344,38 +350,34 @@ let departmentData: Dept[] = [{
 @Injectable()
 export class Service {
 
+    //TODO FIXA DATUM TILL ALLA CALLS SOM KRÄVE DEM
+
+    url:string = "https://localhost:44336/api/schedule/";
     http:HttpClient;
     constructor(http: HttpClient){
         this.http = http;
      }
 
-    getSchedule():Observable<Schedule[]> {
-        return this.http.get<Schedule[]>(this.url + "values/schedules");
+    getSchedule(date:Date):Observable<Schedule[]> {
+        return this.http.get<Schedule[]>(this.url + "schedules/" + date.getDate());
     }
-    getDepartment() {
-        return departmentData;
-    }
-
-    getProcedures():Observable<Procedure[]> {
-        return this.http.get<Procedure[]>(this.url + "values/procedures");
+    getDepartment():Observable<Department[]> {
+        return this.http.get<Department[]>(this.url + "/department");
     }
 
-    getProcedure_Schedule(){
-        return procedure_scheduleData;
+    getProcedures(date:Date):Observable<Procedure[]> {
+        return this.http.get<Procedure[]>(this.url + "procedures/" + date.getDate());
+    }
+
+    getProcedure_Schedule(date:Date):Observable<Procedure_Schedule[]>{
+        return this.http.get<Procedure_Schedule[]>(this.url + "scheduledprocedures/" + date.getDate());
     }
     getStatus() {
         return procedureStatusData;
     }
 
-    url:string = "https://localhost:44336/api/";
-    filepath:string = "../test.json";
-
-    getEmployees() {
-        return staffData;
-    }
-
-    GetStaff():Observable<Staff[]>{
-        return this.http.get<Staff[]>(this.url + "values");
+    GetStaff(date:Date):Observable<Staff[]>{
+        return this.http.get<Staff[]>(this.url + "staff/" + date.getDate());
     }
 
 }

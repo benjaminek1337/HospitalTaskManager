@@ -1,4 +1,5 @@
 ﻿using HospitalTaskManagerWebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,24 +15,29 @@ namespace HospitalTaskManagerWebAPI.Data
             this.context = context;
         }
 
-        public List<ScheduledProcedure> GetScheduledProcedures()
+        public List<Department> GetDepartments()
         {
-            throw new NotImplementedException();
+            return context.Departments.ToList();
         }
 
-        public List<Procedure> GetTodaysProcedures()
+        public List<Procedure> GetTodaysProcedures(DateTime date)
         {
-            throw new NotImplementedException();
+            return context.Procedures.Where(p => p.StartDate.Date == date.Date).ToList();
         }
 
-        public List<Schedule> GetTodaysSchedule()
+        public List<Schedule> GetTodaysSchedule(DateTime date)
         {
-            throw new NotImplementedException();
+            return context.Schedules.Where(s => s.StartDate.Date == date.Date).ToList();
         }
 
-        public List<Staff> GetTodaysStaff()
+        public List<ScheduledProcedure> GetTodaysScheduledProcedures(DateTime date)
         {
-            throw new NotImplementedException();
+            return context.ScheduledProcedures.Where(sp => sp.Schedule.StartDate.Date == date.Date).ToList();
+        }
+
+        public List<Staff> GetTodaysStaff(DateTime date)
+        {
+            return context.Staffs.Where(s => s.Schedules.Any(sch => sch.StartDate.Date == date.Date)).ToList();
         }
     }
 }

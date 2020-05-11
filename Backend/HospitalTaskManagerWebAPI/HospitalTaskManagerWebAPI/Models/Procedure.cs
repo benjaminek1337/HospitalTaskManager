@@ -13,6 +13,8 @@ namespace HospitalTaskManagerWebAPI.Models
         public string ProcedureName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public bool IsHandled { get; set; }
         public IList<ScheduledProcedure> ScheduledProcedures { get; set; }
+
     }
 }

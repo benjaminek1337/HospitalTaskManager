@@ -30,7 +30,7 @@ namespace HospitalTaskManagerWebAPI
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddTransient<IRepository, MockRepository>();
+            services.AddTransient<IRepository, Repository>();
 
             services.AddDbContext<AuthenticationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));

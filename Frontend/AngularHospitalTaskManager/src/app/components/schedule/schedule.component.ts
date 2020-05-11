@@ -21,6 +21,8 @@ export class ScheduleComponent {
     scheduledStaff: Staff[];
 
     currentDate: Date = new Date();
+    mockDate:Date = new Date("May 11 2020 10:00");
+    
 
     showCurrentTimeIndicator = true;
     shadeUntilCurrentTime = true;
@@ -31,30 +33,43 @@ export class ScheduleComponent {
 
     polling: any;
     ngOnInit() {
-        this.AzynkronusKonstraaktor();
-        
-        alert("dfgjiofgj");
-
+        this.AzynkronusKonztraaktor();
     }
 
     async GetStaffAsync(){
+        
+        // this.staffData = await this.service.GetStaff(this.currentDate)
+        //     .toPromise().then(data => this.staffData = data as Staff[]);
+        // this.scheduleData = await this.service.getSchedule(this.currentDate)
+        //     .toPromise().then(data => this.scheduleData = data as Schedule[]);
+        // this.procedureData = await this.service.getProcedures(this.currentDate)
+        //     .toPromise().then(data => this.procedureData = data as Procedure[]);
+        // this.procedure_scheduleData = await this.service.getProcedure_Schedule(this.currentDate)
+        //     .toPromise()
+        //     .then(data => this.procedure_scheduleData = data as Procedure_Schedule[]);
 
-        this.staffData = await this.service.GetStaff().toPromise().then(data => this.staffData = data as Staff[]);
-        this.scheduleData = await this.service.getSchedule().toPromise().then(data => this.scheduleData = data as Schedule[]);
-        this.procedureData = await this.service.getProcedures().toPromise().then(data => this.procedureData = data as Procedure[]);
-        this.procedure_scheduleData = this.service.getProcedure_Schedule();
+        this.service.GetStaff(this.currentDate)
+            .subscribe(data => this.staffData = data as Staff[]);
+        this.service.getSchedule(this.currentDate)
+            .subscribe(data => this.scheduleData = data as Schedule[]);
+        this.service.getProcedures(this.currentDate)
+            .subscribe(data => this.procedureData = data as Procedure[]);
+        this.service.getProcedure_Schedule(this.currentDate)
+            .subscribe(data => this.procedure_scheduleData = data as Procedure_Schedule[]);
+
+
         this.scheduledProcedureData = this.getScheduledProcedures();
         this.statusData = this.service.getStatus();
         this.scheduledStaff = this.GetScheduledStaff();
         locale(navigator.language);
-        alert("först");
+        alert("det tar sig");
     }
 
-    async AzynkronusKonstraaktor(){
+    async AzynkronusKonztraaktor(){
         await this.GetStaffAsync();
         this.CheckProcedureStatus();
         this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
-        alert ("tvåa");
+        alert ("Fixart");
     }
 
     ngOnDestroy() {

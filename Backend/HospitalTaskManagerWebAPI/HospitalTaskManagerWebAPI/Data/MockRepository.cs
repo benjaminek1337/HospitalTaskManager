@@ -16,7 +16,6 @@ namespace HospitalTaskManagerWebAPI.Data
         private readonly Random random2 = new Random();
         private DateTime dateNow = DateTime.Now;
 
-        private readonly List<Status> statuses = new List<Status>();
         private readonly List<Department> departments = new List<Department>();
         private List<Procedure> procedures = new List<Procedure>();
         private List<Schedule> schedules = new List<Schedule>();
@@ -77,34 +76,13 @@ namespace HospitalTaskManagerWebAPI.Data
                 "Tandskrapning",
                 "Botoxa stortår",
                 "Laga stormiddag",
-                "Tömma analsäck",
+                "Tömma ryggradsvätska",
                 "Ge filiduttvaccin",
                 "Genkodning",
                 "Dyrka Satan",
                 "Rutinkontroll",
                 "Skälla ut praktikanten",
                 "Programmera statuslistan"
-            });
-            statuses.AddRange(new List<Status>
-            {
-                new Status
-                {
-                    ID = 1,
-                    Text = "Utan problem",
-                    Color = "#9cadf7"
-                },
-                new Status
-                {
-                    ID = 2,
-                    Text = "Kommande avvikelse",
-                    Color = "#f5902c"
-                },
-                new Status
-                {
-                    ID = 3,
-                    Text = "Avvikelse skedd",
-                    Color = "#ff0000"
-                }
             });
             var department = new Department
             {
@@ -120,7 +98,6 @@ namespace HospitalTaskManagerWebAPI.Data
                 {
                     onSite = true;
                 }
-
                 var staff = new Staff
                 {
                     FirstName = firstNames[random.Next(0, firstNames.Count)],
@@ -155,7 +132,8 @@ namespace HospitalTaskManagerWebAPI.Data
                     DepartmentId = 1,
                     ID = i + 1,
                     StartDate = startDate,
-                    EndDate = endDate
+                    EndDate = endDate,
+                    IsHandled = false
                 }; procedures.Add(p);
             }
         }
@@ -175,9 +153,9 @@ namespace HospitalTaskManagerWebAPI.Data
             return procedures;
         }
 
-        public List<Status> GetStatus()
+        public List<Department> GetDepartments()
         {
-            return statuses;
+            return departments;
         }
 
         public List<ScheduledProcedure> GetScheduledProcedures()
@@ -219,6 +197,26 @@ namespace HospitalTaskManagerWebAPI.Data
 
             return scheduledProcedures;
 
+        }
+
+        public List<Staff> GetTodaysStaff(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Schedule> GetTodaysSchedule(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Procedure> GetTodaysProcedures(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ScheduledProcedure> GetTodaysScheduledProcedures(DateTime date)
+        {
+            throw new NotImplementedException();
         }
     }
 }

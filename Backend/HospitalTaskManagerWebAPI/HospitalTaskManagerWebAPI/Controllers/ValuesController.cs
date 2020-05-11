@@ -16,33 +16,7 @@ namespace HospitalTaskManagerWebAPI.Controllers
         {
             this.repo = repo;
         }
-
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<Staff>> Get()
-        {
-            return repo.GetTodaysStaff();
-        }
-
-        [HttpGet]
-        [Route("Schedules")]
-        public ActionResult<List<Schedule>> GetSchedule()
-        {
-            return repo.GetTodaysSchedule();
-        }
-        [HttpGet]
-        [Route("Procedures")]
-        public ActionResult<List<Procedure>> GetProcedures()
-        {
-            return repo.GetTodaysProcedures();
-        }
-
-        [HttpGet]
-        [Route("ScheduledProcedures")]
-        public ActionResult<List<ScheduledProcedure>> GetScheduledProcedures()
-        {
-            return repo.GetScheduledProcedures();
-        }
+    
 
         // GET api/values/5
         [HttpGet("{id}")]
