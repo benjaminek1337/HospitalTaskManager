@@ -44,9 +44,9 @@
         <!-- In me arbetstid nedan -->
         <div *dxTemplate="let employee of 'resourceCellTemplate'">
             <div>
-                <span *ngIf="IsWorkHour(employee.id) == 'inside'" class="dot-green"></span>
-                <span *ngIf="IsWorkHour(employee.id) == 'outside'" class="dot-yellow"></span>
-                <h4>{{ GetEmployee(employee.id).firstName + " " + GetEmployee(employee.id).lastName }}</h4>
+                <span *ngIf="IsWorkHour(employee.ID) == 'inside'" class="dot-green"></span>
+                <span *ngIf="IsWorkHour(employee.ID) == 'outside'" class="dot-yellow"></span>
+                <h4>{{ GetEmployee(employee.ID).FirstName + " " + GetEmployee(employee.ID).LastName }}</h4>
                 <!-- <p>Arbetstid in hit</p> -->
             </div>
         </div>

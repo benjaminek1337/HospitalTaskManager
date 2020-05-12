@@ -13,12 +13,12 @@ export class Procedure {
 }
 
 export interface Staff {
-    firstName: string;
-    lastName: string;
-    id: number;
-    deptId: number;
-    phoneNr: string;
-    onSite:boolean;
+    FirstName: string;
+    LastName: string;
+    ID: number;
+    DepartmentId: number;
+    PhoneNr: string;
+    OnSite:boolean;
 }
 
 export class Schedule {
