@@ -1,4 +1,5 @@
 ﻿using HospitalTaskManagerWebAPI.Models;
+using HospitalTaskManagerWebAPI.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -215,6 +216,11 @@ namespace HospitalTaskManagerWebAPI.Data
         }
 
         public List<ScheduledProcedure> GetTodaysScheduledProcedures(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<AllDataViewModel> GetInitScheduleData(DateTime date)
         {
             throw new NotImplementedException();
         }

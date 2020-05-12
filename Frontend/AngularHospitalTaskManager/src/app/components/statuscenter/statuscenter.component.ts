@@ -13,7 +13,8 @@ export class StatuscenterComponent implements OnInit {
   @Input()scheduledProcedureData:ScheduledProcedure[];
   @Input()scheduleData:Schedule[];
   @Input()staffData:Staff[];
-  currentDate: Date = new Date();
+  //currentDate: Date = new Date();
+  currentDate:Date = new Date("2020-05-11 11:00");
 
   constructor(service:Service) {}
 

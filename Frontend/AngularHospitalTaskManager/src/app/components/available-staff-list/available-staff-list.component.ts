@@ -20,7 +20,8 @@ export class AvailableStaffListComponent implements OnInit {
   availableStaff:Staff[];
   availableStaffOWH:Staff[];
 
-  currentTime:Date = new Date();
+  //currentTime:Date = new Date();
+  currentTime:Date = new Date("2020-05-11 11:00");
   
   search;
 

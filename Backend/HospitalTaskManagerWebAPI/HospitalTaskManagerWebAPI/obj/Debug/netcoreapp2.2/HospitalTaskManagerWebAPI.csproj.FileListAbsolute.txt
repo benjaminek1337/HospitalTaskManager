@@ -25,7 +25,6 @@ C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAP
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\bin\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.dll
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\bin\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.pdb
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.csprojAssemblyReference.cache
-C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.csproj.CoreCompileInputs.cache
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.RazorAssemblyInfo.cache
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.RazorAssemblyInfo.cs
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.AssemblyInfoInputs.cache
@@ -34,3 +33,4 @@ C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAP
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.dll
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.pdb
 C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.genruntimeconfig.cache
+C:\Users\benja\source\repos\HospitalTaskManager\Backend\HospitalTaskManagerWebAPI\HospitalTaskManagerWebAPI\obj\Debug\netcoreapp2.2\HospitalTaskManagerWebAPI.csproj.CoreCompileInputs.cache

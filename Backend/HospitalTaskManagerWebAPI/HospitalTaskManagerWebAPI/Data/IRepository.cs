@@ -1,4 +1,5 @@
 ﻿using HospitalTaskManagerWebAPI.Models;
+using HospitalTaskManagerWebAPI.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace HospitalTaskManagerWebAPI.Data
         List<Procedure> GetTodaysProcedures(DateTime date);
         List<ScheduledProcedure> GetTodaysScheduledProcedures(DateTime date);
         List<Department> GetDepartments();
+        List<AllDataViewModel> GetInitScheduleData(DateTime date);
     }
 }

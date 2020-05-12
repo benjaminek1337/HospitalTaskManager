@@ -15,5 +15,11 @@ namespace HospitalTaskManagerWebAPI.Models
         public Department Department { get; set; }
         public bool OnSite { get; set; }
         public List<Schedule> Schedules { get; set; }
+
+
+        public Staff()
+        {
+            Schedules = new List<Schedule>();
+        }
     }
 }

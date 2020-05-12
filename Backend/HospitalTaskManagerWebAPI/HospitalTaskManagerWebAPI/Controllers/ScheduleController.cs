@@ -4,8 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using HospitalTaskManagerWebAPI.Data;
 using HospitalTaskManagerWebAPI.Models;
+using HospitalTaskManagerWebAPI.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Remotion.Linq.Parsing.Structure.IntermediateModel;
+using Newtonsoft.Json;
 
 namespace HospitalTaskManagerWebAPI.Controllers
 {
@@ -54,8 +57,15 @@ namespace HospitalTaskManagerWebAPI.Controllers
         {
             return repo.GetTodaysScheduledProcedures(date);
         }
+        [HttpGet]
+        [Route("initdata/{date}")]
+        public ActionResult<IEnumerable<AllDataViewModel>> GetSchedulerInitialData(DateTime date)
+        {
+            //var json = JsonConvert.SerializeObject(repo.GetInitScheduleData(date), Formatting.Indented);
+            //return json;
 
+            return repo.GetInitScheduleData(date);
+        }
 
-
-    }
+    }   
 }

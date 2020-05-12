@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { Procedure, Staff, Service, Schedule, ScheduledProcedure, ProcedureStatus, Procedure_Schedule } from '../../services/schedule.service';
+import { Procedure, Staff, Service, Schedule, ScheduledProcedure, ProcedureStatus, Procedure_Schedule, Department } from '../../services/schedule.service';
 import Query from "devextreme/data/query"
 import { locale, loadMessages } from 'devextreme/localization';
+import { tap, concatMap } from "rxjs/operators"
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-schedule',
@@ -12,20 +14,23 @@ import { locale, loadMessages } from 'devextreme/localization';
 })
 
 export class ScheduleComponent {
+    departmentData: Department[];
     procedureData: Procedure[];
-    scheduleData: Schedule[];
+    scheduleData: Schedule[] = [];
     procedure_scheduleData:Procedure_Schedule[];
     scheduledProcedureData: ScheduledProcedure[];
     statusData: ProcedureStatus[];
     staffData: Staff[];
     scheduledStaff: Staff[];
 
-    currentDate: Date = new Date();
-    mockDate:Date = new Date("May 11 2020 10:00");
-    
+    //currentDate: Date = new Date();
+    currentDate:Date = new Date("2020-05-11 11:00");
+    mockDate:Date = new Date("2020-05-11");
 
-    showCurrentTimeIndicator = true;
-    shadeUntilCurrentTime = true;
+    isLoaded:boolean;
+    
+    showCurrentTimeIndicator = false;
+    shadeUntilCurrentTime = false;
 
 
     constructor(private service: Service) {
@@ -33,43 +38,48 @@ export class ScheduleComponent {
 
     polling: any;
     ngOnInit() {
+        
         this.AzynkronusKonztraaktor();
+        setTimeout(() => {this.RestOfShit();}, 5000);        
+        
     }
 
     async GetStaffAsync(){
         
-        // this.staffData = await this.service.GetStaff(this.currentDate)
-        //     .toPromise().then(data => this.staffData = data as Staff[]);
-        // this.scheduleData = await this.service.getSchedule(this.currentDate)
-        //     .toPromise().then(data => this.scheduleData = data as Schedule[]);
-        // this.procedureData = await this.service.getProcedures(this.currentDate)
-        //     .toPromise().then(data => this.procedureData = data as Procedure[]);
-        // this.procedure_scheduleData = await this.service.getProcedure_Schedule(this.currentDate)
-        //     .toPromise()
-        //     .then(data => this.procedure_scheduleData = data as Procedure_Schedule[]);
+        // this.service.GetStaff(this.mockDate).pipe(
+        //     tap(data => this.staffData = data as Staff[]),
+        //     concatMap(data => this.service.getSchedule(this.mockDate)),
+        //     tap(data => this.scheduleData = data as Schedule[]),
+        //     concatMap(data => this.service.getProcedures(this.mockDate)),
+        //     tap(data => this.procedureData = data as Procedure[]),
+        //     concatMap(data => this.service.getProcedure_Schedule(this.mockDate)),
+        //     tap(data => this.procedure_scheduleData = data as Procedure_Schedule[]),
+        // ).subscribe();
+        // alert("Efter pipe");
 
-        this.service.GetStaff(this.currentDate)
-            .subscribe(data => this.staffData = data as Staff[]);
-        this.service.getSchedule(this.currentDate)
-            .subscribe(data => this.scheduleData = data as Schedule[]);
-        this.service.getProcedures(this.currentDate)
-            .subscribe(data => this.procedureData = data as Procedure[]);
-        this.service.getProcedure_Schedule(this.currentDate)
-            .subscribe(data => this.procedure_scheduleData = data as Procedure_Schedule[]);
-
-
-        this.scheduledProcedureData = this.getScheduledProcedures();
-        this.statusData = this.service.getStatus();
-        this.scheduledStaff = this.GetScheduledStaff();
-        locale(navigator.language);
-        alert("det tar sig");
+        await this.service.GetInitScheduleData(this.mockDate).subscribe(
+            data => {
+                this.departmentData = data[0].Departments as Department[];
+                this.staffData = data[0].Staffs as Staff[];
+                this.procedureData = data[0].Procedures as Procedure[];
+                this.scheduleData = data[0].Schedules as Schedule[];
+                this.procedure_scheduleData = data[0].ScheduledProcedures as Procedure_Schedule[];
+            });
+        
     }
 
     async AzynkronusKonztraaktor(){
         await this.GetStaffAsync();
+    }
+
+    RestOfShit(){
+        this.statusData = this.service.getStatus();
+        this.scheduledProcedureData = this.getScheduledProcedures();
+        this.scheduledStaff = this.GetScheduledStaff();
+        locale(navigator.language);
         this.CheckProcedureStatus();
         this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
-        alert ("Fixart");
+        this.isLoaded = true;
     }
 
     ngOnDestroy() {

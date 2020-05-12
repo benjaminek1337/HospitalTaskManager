@@ -1,11 +1,11 @@
-<div class="scheduler">
+<div class="scheduler" *ngIf="isLoaded">
     <dx-scheduler 
         [views]='["Dagtid"]' 
         [dataSource]="scheduledProcedureData" 
         [showAllDayPanel]="false"
         [groups]="['staffId']" 
         currentView="timelineDay" 
-        [currentDate]="currentDate"
+        [currentDate]="mockDate"
         [showCurrentTimeIndicator]='showCurrentTimeIndicator' 
         [shadeUntilCurrentTime]='shadeUntilCurrentTime'
         [firstDayOfWeek]="1" 
@@ -100,7 +100,7 @@
     </dx-scheduler>
 </div>
 
-<div class="wrapper">
+<div class="wrapper" *ngIf="isLoaded">
     <div class="table">
         <div class="row">
             <div class="statusbox" aria-colspan="3">

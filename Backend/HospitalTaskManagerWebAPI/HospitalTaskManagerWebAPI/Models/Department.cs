@@ -11,5 +11,10 @@ namespace HospitalTaskManagerWebAPI.Models
         public string DepartmentName { get; set; }
         public List<Staff> Staffs { get; set; }
         public List<Procedure> Procedures { get; set; }
+
+        public Department()
+        {
+            Procedures = new List<Procedure>();
+        }
     }
 }

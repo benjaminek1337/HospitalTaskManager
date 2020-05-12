@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { DxSchedulerModule } from 'devextreme-angular';
 import { StatuscenterComponent } from './components/statuscenter/statuscenter.component';
 import { AvailableStaffListComponent } from './components/available-staff-list/available-staff-list.component';
+import { DatePipe} from "@angular/common"
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { AvailableStaffListComponent } from './components/available-staff-list/a
     Ng2SearchPipeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
