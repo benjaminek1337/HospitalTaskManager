@@ -3,6 +3,7 @@ using HospitalTaskManagerWebAPI.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,19 +22,18 @@ namespace HospitalTaskManagerWebAPI.Data
             return context.Departments.ToList();
         }
 
-        public List<AllDataViewModel> GetInitScheduleData(DateTime date)
+        public AllDataViewModel GetInitScheduleData(DateTime date)
         {
-            var initdatalist = new List<AllDataViewModel>();
             var initdata = new AllDataViewModel
             {
                 Departments = GetDepartments(),
                 Procedures = GetTodaysProcedures(date),
                 Schedules = GetTodaysSchedule(date),
                 ScheduledProcedures = GetTodaysScheduledProcedures(date),
-                Staffs = GetTodaysStaff(date)
-            }; initdatalist.Add(initdata);
+                Staffs = GetTodaysStaff()
+            }; 
             
-            return initdatalist;
+            return initdata;
         }
 
         public List<Procedure> GetTodaysProcedures(DateTime date)
@@ -51,9 +51,17 @@ namespace HospitalTaskManagerWebAPI.Data
             return context.ScheduledProcedures.Where(sp => sp.Schedule.StartDate.Date == date.Date).ToList();
         }
 
-        public List<Staff> GetTodaysStaff(DateTime date)
+        public List<Staff> GetTodaysStaff()
         {
-            return context.Staffs.Where(s => s.Schedules.Any(sch => sch.StartDate.Date == date.Date)).ToList();
+            return context.Staffs.ToList();
+        }
+
+        public void MarkProcedureAsHandled(Procedure procedure)
+        {
+            var updatedProcedure = context.Procedures.FirstOrDefault(p => p.ID == procedure.ID);
+            updatedProcedure.IsHandled = true;
+            context.Update(updatedProcedure);
+            context.SaveChanges();
         }
     }
 }

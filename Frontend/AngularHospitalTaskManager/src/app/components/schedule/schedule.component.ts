@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy, Input } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { Procedure, Staff, Service, Schedule, ScheduledProcedure, ProcedureStatus, Procedure_Schedule, Department } from '../../services/schedule.service';
+import { Procedure, Staff, Service, Schedule, ScheduledProcedure, ProcedureStatus, Procedure_Schedule, Department, AllData } from '../../services/schedule.service';
 import Query from "devextreme/data/query"
-import { locale, loadMessages } from 'devextreme/localization';
-import { tap, concatMap } from "rxjs/operators"
-import { Observable } from 'rxjs';
+import { locale} from 'devextreme/localization';
+import DataSource from "devextreme/data/data_source";
+import { isNullOrUndefined } from 'util';
 
 @Component({
     selector: 'app-schedule',
     templateUrl: './schedule.component.html',
     styleUrls: ['./schedule.component.css'],
-    providers: [Service]
+    providers: [Service],
+    //changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ScheduleComponent {
+    allData:AllData;
     departmentData: Department[];
     procedureData: Procedure[];
-    scheduleData: Schedule[] = [];
+    scheduleData: Schedule[];
     procedure_scheduleData:Procedure_Schedule[];
     scheduledProcedureData: ScheduledProcedure[];
     statusData: ProcedureStatus[];
@@ -24,52 +26,98 @@ export class ScheduleComponent {
     scheduledStaff: Staff[];
 
     //currentDate: Date = new Date();
-    currentDate:Date = new Date("2020-05-11 11:00");
-    mockDate:Date = new Date("2020-05-11");
+    currentDate:Date = new Date("2020-05-16 11:00");
+    mockDate:Date = new Date("2020-05-16");
 
     isLoaded:boolean;
+    isWorkTimeLoaded:boolean;
     
-    showCurrentTimeIndicator = false;
-    shadeUntilCurrentTime = false;
+    showCurrentTimeIndicator = true;
+    shadeUntilCurrentTime = true;
 
+    @Input() datacells;
+    cellData:{staffId:number, startDate:Date, endDate:Date}[] = [];
+    ds:DataSource;
 
     constructor(private service: Service) {
     }
 
     polling: any;
     ngOnInit() {
-        
         this.AzynkronusKonztraaktor();
-        setTimeout(() => {this.RestOfShit();}, 5000);        
+        setTimeout(() => {this.RestOfShit();}, 1500);
         
-    }
+        this.ds = new DataSource({
 
-    async GetStaffAsync(){
-        
-        // this.service.GetStaff(this.mockDate).pipe(
-        //     tap(data => this.staffData = data as Staff[]),
-        //     concatMap(data => this.service.getSchedule(this.mockDate)),
-        //     tap(data => this.scheduleData = data as Schedule[]),
-        //     concatMap(data => this.service.getProcedures(this.mockDate)),
-        //     tap(data => this.procedureData = data as Procedure[]),
-        //     concatMap(data => this.service.getProcedure_Schedule(this.mockDate)),
-        //     tap(data => this.procedure_scheduleData = data as Procedure_Schedule[]),
-        // ).subscribe();
-        // alert("Efter pipe");
-
-        await this.service.GetInitScheduleData(this.mockDate).subscribe(
-            data => {
-                this.departmentData = data[0].Departments as Department[];
-                this.staffData = data[0].Staffs as Staff[];
-                this.procedureData = data[0].Procedures as Procedure[];
-                this.scheduleData = data[0].Schedules as Schedule[];
-                this.procedure_scheduleData = data[0].ScheduledProcedures as Procedure_Schedule[];
-            });
+        });
         
     }
 
     async AzynkronusKonztraaktor(){
         await this.GetStaffAsync();
+    }
+
+    async GetStaffAsync(){
+        const staffCall = this.service.GetStaff();
+        const scheduleCall = this.service.getSchedule(this.mockDate);
+        const procedureCall = this.service.getProcedures(this.mockDate);
+        const procedure_scheduleCall = this.service.getProcedure_Schedule(this.mockDate);
+        
+        await staffCall.toPromise().then( data => {
+            this.staffData = data.map(
+                staff => {
+                    return {
+                        firstName: staff.FirstName,
+                        lastName: staff.LastName,
+                        id: staff.ID,
+                        departmentId: staff.DepartmentId,
+                        phoneNr: staff.PhoneNr,
+                        onSite: staff.OnSite
+                    }
+                }
+            )
+        });
+        console.log (this.staffData); 
+        await scheduleCall.toPromise().then( data => {
+            this.scheduleData = data.map(
+                res => {
+                    return {
+                        startDate: res.StartDate,
+                        endDate: res.EndDate,
+                        id: res.ID,
+                        staffId: res.StaffID
+                    }
+                }
+            )
+        });
+        console.log (this.scheduleData);
+        await procedureCall.toPromise().then( data => {
+            this.procedureData = data.map(
+                res => {
+                    return {
+                        id: res.ID,
+                        deptId: res.DepartmentId,
+                        text: res.ProcedureName,
+                        startDate: res.StartDate,
+                        endDate: res.EndDate,
+                        isHandled: res.isHandled
+                    }
+                }
+            )
+        });
+        console.log(this.procedureData);
+        await procedure_scheduleCall.toPromise().then( data => {
+            this.procedure_scheduleData = data.map(
+                res => {
+                    return {
+                        procedureId: res.ProcedureId,
+                        scheduleId: res.ScheduleId,
+                        keyPerson: res.KeyPerson
+                    }
+                }
+            )
+        });      
+        console.log(this.procedure_scheduleData);     
     }
 
     RestOfShit(){
@@ -80,10 +128,26 @@ export class ScheduleComponent {
         this.CheckProcedureStatus();
         this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
         this.isLoaded = true;
+        this.isWorkTimeLoaded = false;
+        this.GenerateCellData();
     }
 
     ngOnDestroy() {
         clearInterval(this.polling);
+    }
+
+    DisableClickEvent(e){
+        e.cancel = true;
+    }
+
+    DisableAppointmentForm(e){
+        e.component._popup.hide();
+    }
+
+    MarkProcedureAsHandled(id:number):void {
+        let procedure = this.GetProcedure(id);
+        this.service.MarkProcedureAsHandled(id, procedure).subscribe();
+        this.CheckProcedureStatus();
     }
 
     GetScheduledStaff():Staff[]{
@@ -101,6 +165,10 @@ export class ScheduleComponent {
     GetProcedureStatus(id:number){
         return Query(this.statusData).filter(["id", "=", id]).toArray()[0];
     }
+
+    GetProcedure(id:number){
+        return this.procedureData.find(p => p.id == id);
+    }
     
     CheckProcedureStatus() {
         this.scheduledProcedureData.forEach(p => {
@@ -109,46 +177,88 @@ export class ScheduleComponent {
             if (p.startDate > this.currentDate) {
                 p.statusId = 1;
             }
-            if (staff.find(item => item.onSite == false)) {
-                if (p.startDate < this.currentDate) {
+            if(p.isHandled == true){
+                p.statusId = 1;
+            }
+            else if (staff.find(item => item.onSite == false)) {
+                if (Date.parse(p.startDate.toString()) < this.currentDate.getTime()) {
                     p.statusId = 3;
                     //TODO SEN kanske se till att 3600000 är justerbar till preferens ist för fast siffra. DB-post?
                     //Signalera bakänden att problemz sker
                 }
-                else if(p.startDate.getTime() < this.currentDate.getTime() + 3600000){
+                else if(Date.parse(p.startDate.toString()) < this.currentDate.getTime() + 3600000){
                     p.statusId = 2;
                 }
             }
         })
     }
 
-    MarkWorkHours(data){
+    GetDataCells(data){
+        let cell: {staffId:number, startDate:Date, endDate:Date}
+        try {
+            if(isNullOrUndefined(this.cellData ) || data.groups.staffId < this.cellData[this.cellData.length - 1].staffId){
+
+                cell = {
+                    staffId: data.groups.staffId,
+                    startDate: data.startDate,
+                    endDate: data.endDate
+                }
+                this.cellData.push(cell);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    GenerateCellData(){
+        let minutes = 15;
+        let celldata = [];
+        let tt = 0;
+        
+        for (let i = 0; i < this.scheduledStaff.length; i++) {
+            const staff = this.scheduledStaff[i];
+            let staffId = i + 1;
+            for (let j = 0; tt < 24; j++) {
+                let hh = Math.floor(tt/60);
+                let mm = tt%60;
+                celldata.push(("0" + hh ).slice(-2) + ':' + ("0" + mm).slice(-2));
+                tt = tt + minutes;
+            }
+        }
+        console.log(celldata);
+    }
+
+    GetWorkHours(data){
+
         let classObject = {};
         let className: string = "";
         classObject[this.IsWorkHours(data, className)] = true;
+        console.log("hej")
         return classObject;
     }
 
     IsWorkHour(id:number){
         let schedule:Schedule = this.scheduleData.find(s => s.staffId == id);
         let staff:Staff = this.staffData.find(s => s.id == id)
-        if(schedule.startDate <= this.currentDate && schedule.endDate >= this.currentDate && staff.onSite == true){
+        if(Date.parse(schedule.startDate.toString()) <= this.currentDate.getTime() 
+        && Date.parse(schedule.endDate.toString()) >= this.currentDate.getTime() && staff.onSite == true){
             return "inside";
         }
-        else if(schedule.startDate >= this.currentDate || schedule.endDate <= this.currentDate && staff.onSite == true){
+        else if(Date.parse(schedule.startDate.toString()) >= this.currentDate.getTime()
+        || Date.parse(schedule.endDate.toString()) <= this.currentDate.getTime() && staff.onSite == true){
             return "outside";
         }
         else{
             return "not";
         }
-
     }
 
     IsWorkHours(data:any, className:string) {
-        let schedule = this.scheduleData.find(s => s.staffId == data.groups.staffId);
-        if(this.IsWorkHour(data.groups.staffId) == "inside" && schedule != null){
-            if (schedule.startDate < data.endDate && data.startDate < schedule.endDate){
-                if(data.startDate <= schedule.startDate ){
+        let schedule = this.scheduleData.find(s => s.staffId === data.groups.staffId);
+        if(this.IsWorkHour(data.groups.staffId) === "inside" && schedule != null){
+            if (Date.parse(schedule.startDate.toString()) < data.endDate.getTime() 
+            && data.startDate.getTime() < Date.parse(schedule.endDate.toString())){
+                if(data.startDate.getTime() <= Date.parse(schedule.startDate.toString()) ){
                     className="workTimeStart";
                 }
                 else{
@@ -157,7 +267,8 @@ export class ScheduleComponent {
                 return className;
             }
             else{
-                if(data.startDate <= schedule.endDate && data.startDate >= schedule.startDate)
+                if(data.startDate.getTime() <= Date.parse(schedule.endDate.toString()) 
+                && data.startDate.getTime() >= Date.parse(schedule.startDate.toString()))
                     className="workTimeEnded";
                 else
                     className="notWorkTime";
@@ -165,8 +276,9 @@ export class ScheduleComponent {
             }
         }
         else if(schedule != null){
-            if (schedule.startDate < data.endDate && data.startDate < schedule.endDate){
-                if(data.startDate <= schedule.startDate ){
+            if (Date.parse(schedule.startDate.toString()) < data.endDate.getTime() 
+            && data.startDate.getTime() < Date.parse(schedule.endDate.toString())){
+                if(data.startDate.getTime() <= Date.parse(schedule.startDate.toString()) ){
                     className="workTimeStartNotOnSite";
                 }
                 else{
@@ -175,7 +287,8 @@ export class ScheduleComponent {
                 return className;
             }
             else{
-                if(data.startDate <= schedule.endDate && data.startDate >= schedule.startDate)
+                if(data.startDate.getTime() <= Date.parse(schedule.endDate.toString()) 
+                && data.startDate.getTime() >= Date.parse(schedule.startDate.toString()))
                     className="workTimeEndedNotOnSite";
                 else
                     className="notWorkTime";
@@ -214,11 +327,13 @@ export class ScheduleComponent {
                     endDate: procedure.endDate,
                     staffId: scheduleIds,
                     procedureId: procedure.id,
+                    isHandled: procedure.isHandled,
                     statusId: 1
                 }
                 scheduledProcedureData.push(scheduledProcedure);
             }
         }
+        console.log(scheduledProcedureData.filter((obj, index, self) => self.findIndex(s => s.procedureId === obj.procedureId) === index));
         return scheduledProcedureData.filter((obj, index, self) => self.findIndex(s => s.procedureId === obj.procedureId) === index);
     }
 }

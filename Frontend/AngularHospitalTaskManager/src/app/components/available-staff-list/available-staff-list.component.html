@@ -1,19 +1,19 @@
 <div class="availableBox">
-    <h3>Tillgänglig personal på avdelningen</h3>
+    <h3>Tillgänglig personal ({{ (availableStaffCount + availableStaffOWHCount).toString()}} st)</h3>
     <input type="text" class="searchBar" [(ngModel)]="search" placeholder="Sök i listan...">
     <div *ngIf="availableStaff.length != 0">
-        <h2>På arbetstid</h2>
+        <h2>På arbetstid ({{availableStaffCount.toString()}} st)</h2>
         <ul>
             <li *ngFor="let item of availableStaff | filter:search">
-                <span class="dot-green"></span><p>{{ item.FirstName + " " + item.LastName}}<br>{{item.PhoneNr}}</p>
+                <span class="dot-green"></span><p>{{ item.firstName + " " + item.lastName}}<br>{{item.phoneNr}}</p>
             </li>
         </ul>
     </div>
     <div *ngIf="availableStaffOWH.length != 0">
-        <h2>Utanför arbetstid</h2>
+        <h2>Utanför arbetstid ({{availableStaffOWHCount.toString()}} st)</h2>
         <ul>
             <li *ngFor="let item of availableStaffOWH | filter:search">
-                <span class="dot-yellow"></span><p>{{ item.FirstName + " " + item.LastName}}<br>{{item.PhoneNr}}</p>
+                <span class="dot-yellow"></span><p>{{ item.firstName + " " + item.lastName}}<br>{{item.phoneNr}}</p>
             </li>
         </ul>
     </div>

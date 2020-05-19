@@ -18,7 +18,16 @@
         resourceCellTemplate="resourceCellTemplate"
         crossScrollingEnabled="true"
         timeCellTemplate="timeCellTemplate"
+        (onAppointmentDblClick)="DisableClickEvent($event)"
+        (onAppointmentFormOpening)="DisableAppointmentForm($event)"
         >
+        <dxo-editing #editingOptions
+        [allowAdding]="false"
+        [allowDeleting]="false"
+        [allowUpdating]="false"
+        [allowResizing]="false"
+        [allowDragging]="false"
+    ></dxo-editing>
         <dxi-view
             name="Dagtid"
             type="timelineDay"
@@ -37,18 +46,16 @@
             label="Status">
         </dxi-resource>
     
-        <div *dxTemplate="let data of 'dataCellTemplate'" class="notWorkTime" [ngClass]="MarkWorkHours(data)">
-            <div  style="min-width: 25px; height: 100%;">&nbsp;</div>
+        <div #datacells *dxTemplate="let data of 'dataCellTemplate'; let listIndex = index">
+            <div  class="notWorkTime" [ngClass]="GetWorkHours(data)" style="min-width: 25px; height: 100%;">&nbsp;</div>
         </div>
         
         <!-- In me arbetstid nedan -->
         <div *dxTemplate="let employee of 'resourceCellTemplate'">
-            <div>
-                <span *ngIf="IsWorkHour(employee.ID) == 'inside'" class="dot-green"></span>
-                <span *ngIf="IsWorkHour(employee.ID) == 'outside'" class="dot-yellow"></span>
-                <h4>{{ GetEmployee(employee.ID).FirstName + " " + GetEmployee(employee.ID).LastName }}</h4>
+                <span *ngIf="IsWorkHour(employee.id) == 'inside'" class="dot-green"></span>
+                <span *ngIf="IsWorkHour(employee.id) == 'outside'" class="dot-yellow"></span>
+                <h4>{{ GetEmployee(employee.id).firstName + " " + GetEmployee(employee.id).lastName }}</h4>
                 <!-- <p>Arbetstid in hit</p> -->
-            </div>
         </div>
     
         <div *dxTemplate="let time of 'timeCellTemplate'">
@@ -64,7 +71,7 @@
             </div>
         </div>
     
-        <div *dxTemplate="let model of 'tooltipTemplate'">
+        <div *dxTemplate="let model of 'tooltipTemplate'" (click)="DisableClickEvent($event)">
             <div class="appointmentTooltip">
                 <div class="tooltipHeader">
                     <h4>{{model.appointmentData.text}}</h4>
@@ -92,7 +99,7 @@
                     <br>
                 </div>
                 <div class="tooltipDeviation" *ngIf="model.appointmentData.statusId == 3">
-                    <button mat-raised-button color="accent">Till omplanering</button>
+                    <button mat-raised-button color="accent" (click)="MarkProcedureAsHandled(model.appointmentData.id)">Markera som hanterad</button>
                     <br>
                 </div>
             </div>

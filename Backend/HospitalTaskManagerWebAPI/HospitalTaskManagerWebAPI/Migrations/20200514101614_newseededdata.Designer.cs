@@ -4,14 +4,16 @@ using HospitalTaskManagerWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospitalTaskManagerWebAPI.Migrations
 {
     [DbContext(typeof(HospitalTaskManagerContext))]
-    partial class HospitalTaskManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20200514101614_newseededdata")]
+    partial class newseededdata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,541 +73,541 @@ namespace HospitalTaskManagerWebAPI.Migrations
                         {
                             ID = 1,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Botoxa stortår",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Injicera dunderhonung",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 2,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 3,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Knäskålsrekonstruktion",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Rutinkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 4,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Lungmätning",
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 5,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Laga stormiddag",
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 6,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 7,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Skapa vaccin för kåråna",
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 8,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 9,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Rutinkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 10,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Tömma ryggradsvätska",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ögonkorrigering",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 11,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Dyrka Satan",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 12,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Operation",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Skriva ut krumelurpiller",
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 13,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Tandskrapning",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Programmera statuslistan",
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 14,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Skälla ut praktikanten",
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Programmera statuslistan",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 15,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Operation",
+                            StartDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 16,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Laga stormiddag",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tandskrapning",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 17,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Botoxa stortår",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Injicera dunderhonung",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 18,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Rutinkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 19,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
                             ProcedureName = "Tömma ryggradsvätska",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 20,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Öronkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 21,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 22,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tömma ryggradsvätska",
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 23,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Operation",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Programmera statuslistan",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 24,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
                             ProcedureName = "Laga stormiddag",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 25,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Programmera statuslistan",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Öronkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 26,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Knäskålsrekonstruktion",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Dyrka Satan",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 27,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
                             ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 28,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tömma ryggradsvätska",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 29,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tandskrapning",
+                            StartDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 30,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Lungmätning",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tandskrapning",
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 31,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
                             ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 32,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Tömma ryggradsvätska",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Knäskålsrekonstruktion",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 33,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 34,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Laga stormiddag",
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Skälla ut praktikanten",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 35,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Knäskålsrekonstruktion",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 36,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Laga stormiddag",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Operation",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 37,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Knäskålsrekonstruktion",
-                            StartDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Rutinkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 38,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Laga stormiddag",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 39,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ögonkorrigering",
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 40,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Öronkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ögonkorrigering",
+                            StartDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 41,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Rutinkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 42,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ge filiduttvaccin",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 43,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
                             ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 44,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Programmera statuslistan",
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 45,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Tömma ryggradsvätska",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Botoxa stortår",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 46,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Botoxa stortår",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tandskrapning",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 47,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ögonkorrigering",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 48,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Lungmätning",
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Injicera dunderhonung",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 49,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ge filiduttvaccin",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 50,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Skälla ut praktikanten",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 51,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Skapa vaccin för kåråna",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Rutinkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 52,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Botoxa stortår",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ge filiduttvaccin",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 53,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Programmera statuslistan",
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ge filiduttvaccin",
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 54,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Ge filiduttvaccin",
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Injicera dunderhonung",
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 55,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Tandskrapning",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Ge filiduttvaccin",
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 56,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Injicera dunderhonung",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Öronkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 57,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Operation",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Genkodning",
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 58,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Knäskålsrekonstruktion",
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Tandskrapning",
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 59,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Genkodning",
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Rutinkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 60,
                             DepartmentId = 1,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified),
                             IsHandled = false,
-                            ProcedureName = "Öronkontroll",
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            ProcedureName = "Rutinkontroll",
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -631,492 +633,492 @@ namespace HospitalTaskManagerWebAPI.Migrations
                         new
                         {
                             ID = 1,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 1,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 2,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 22, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 2,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 3,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 3,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 4,
-                            EndDate = new DateTime(2020, 5, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 4,
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 5,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 5,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 6,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 6,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 7,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 7,
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 8,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 8,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 9,
-                            EndDate = new DateTime(2020, 5, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 9,
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 10,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 10,
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 11,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 11,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 12,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 12,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 13,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 22, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 13,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 14,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 14,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 15,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 15,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 16,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 16,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 17,
-                            EndDate = new DateTime(2020, 5, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 17,
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 18,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 18,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 19,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 19,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 20,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 20,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 21,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 21,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 22,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 22,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 23,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 23,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 24,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 24,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 25,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 25,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 26,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 26,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 27,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 27,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 28,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 28,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 29,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 29,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 30,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 22, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 30,
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 31,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 31,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 32,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 32,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 33,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 33,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 34,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 22, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 34,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 35,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 35,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 36,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 36,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 37,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 37,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 38,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 38,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 6, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 39,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 39,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 40,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 40,
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 41,
-                            EndDate = new DateTime(2020, 5, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 41,
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 42,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 42,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 43,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 43,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 44,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 44,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 45,
-                            EndDate = new DateTime(2020, 5, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 45,
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 46,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 46,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 47,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 47,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 48,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 48,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 49,
-                            EndDate = new DateTime(2020, 5, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 49,
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 50,
-                            EndDate = new DateTime(2020, 5, 16, 20, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 50,
-                            StartDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 51,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 51,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 52,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 52,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 53,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 53,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 54,
-                            EndDate = new DateTime(2020, 5, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 54,
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 55,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 55,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 11, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 56,
-                            EndDate = new DateTime(2020, 5, 16, 22, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 56,
-                            StartDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 57,
-                            EndDate = new DateTime(2020, 5, 16, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 57,
-                            StartDate = new DateTime(2020, 5, 16, 11, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 58,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 21, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 58,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 59,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 59,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 60,
-                            EndDate = new DateTime(2020, 5, 16, 13, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 60,
-                            StartDate = new DateTime(2020, 5, 16, 6, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 61,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 22, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 61,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 62,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 62,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 63,
-                            EndDate = new DateTime(2020, 5, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 63,
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 64,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 16, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 64,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 9, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 65,
-                            EndDate = new DateTime(2020, 5, 16, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 65,
-                            StartDate = new DateTime(2020, 5, 16, 10, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 66,
-                            EndDate = new DateTime(2020, 5, 16, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 66,
-                            StartDate = new DateTime(2020, 5, 16, 9, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 12, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 67,
-                            EndDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 15, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 67,
-                            StartDate = new DateTime(2020, 5, 16, 7, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 8, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 68,
-                            EndDate = new DateTime(2020, 5, 16, 15, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 17, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 68,
-                            StartDate = new DateTime(2020, 5, 16, 8, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 10, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 69,
-                            EndDate = new DateTime(2020, 5, 16, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 69,
-                            StartDate = new DateTime(2020, 5, 16, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 13, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             ID = 70,
-                            EndDate = new DateTime(2020, 5, 16, 21, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndDate = new DateTime(2020, 5, 14, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffID = 70,
-                            StartDate = new DateTime(2020, 5, 16, 14, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartDate = new DateTime(2020, 5, 14, 7, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -1403,632 +1405,632 @@ namespace HospitalTaskManagerWebAPI.Migrations
                         new
                         {
                             ID = 1,
-                            DepartmentId = 1,
-                            FirstName = "Silver",
-                            LastName = "Sork",
-                            OnSite = true,
-                            PhoneNr = "0709037319"
+                            DepartmentId = 2,
+                            FirstName = "Nikolaj",
+                            LastName = "Ek",
+                            OnSite = false,
+                            PhoneNr = "0706103095"
                         },
                         new
                         {
                             ID = 2,
-                            DepartmentId = 2,
-                            FirstName = "Gandalf",
-                            LastName = "Krukskalle",
+                            DepartmentId = 1,
+                            FirstName = "Lisa",
+                            LastName = "Krunkenstör",
                             OnSite = true,
-                            PhoneNr = "0703991945"
+                            PhoneNr = "0708916010"
                         },
                         new
                         {
                             ID = 3,
-                            DepartmentId = 1,
-                            FirstName = "Svetlana",
-                            LastName = "Gandhi",
-                            OnSite = false,
-                            PhoneNr = "0702622392"
+                            DepartmentId = 2,
+                            FirstName = "Stina",
+                            LastName = "Sork",
+                            OnSite = true,
+                            PhoneNr = "0709909447"
                         },
                         new
                         {
                             ID = 4,
                             DepartmentId = 2,
-                            FirstName = "Carlos",
-                            LastName = "Segelspjut",
-                            OnSite = false,
-                            PhoneNr = "0701795058"
+                            FirstName = "Kalle",
+                            LastName = "Askrafvsfader",
+                            OnSite = true,
+                            PhoneNr = "0701102853"
                         },
                         new
                         {
                             ID = 5,
                             DepartmentId = 2,
-                            FirstName = "Tyrion",
-                            LastName = "Sainz",
+                            FirstName = "Katja",
+                            LastName = "Krunkenstör",
                             OnSite = true,
-                            PhoneNr = "0707264223"
+                            PhoneNr = "0708188736"
                         },
                         new
                         {
                             ID = 6,
                             DepartmentId = 1,
-                            FirstName = "Nikolaj",
+                            FirstName = "Benjamin",
                             LastName = "Filling",
-                            OnSite = false,
-                            PhoneNr = "0704030363"
+                            OnSite = true,
+                            PhoneNr = "0702193267"
                         },
                         new
                         {
                             ID = 7,
-                            DepartmentId = 2,
-                            FirstName = "Silver",
-                            LastName = "Dorian",
+                            DepartmentId = 1,
+                            FirstName = "Carla",
+                            LastName = "Ek",
                             OnSite = true,
-                            PhoneNr = "0708711616"
+                            PhoneNr = "0706310482"
                         },
                         new
                         {
                             ID = 8,
-                            DepartmentId = 2,
-                            FirstName = "Sauron",
-                            LastName = "Anka",
-                            OnSite = true,
-                            PhoneNr = "0708081420"
+                            DepartmentId = 1,
+                            FirstName = "Lisa",
+                            LastName = "Kvackzelius",
+                            OnSite = false,
+                            PhoneNr = "0708019285"
                         },
                         new
                         {
                             ID = 9,
                             DepartmentId = 2,
-                            FirstName = "Silver",
-                            LastName = "Segelspjut",
+                            FirstName = "Tyrion",
+                            LastName = "Vader",
                             OnSite = true,
-                            PhoneNr = "0704978837"
+                            PhoneNr = "0705339536"
                         },
                         new
                         {
                             ID = 10,
                             DepartmentId = 2,
-                            FirstName = "Kalle",
-                            LastName = "Gandhi",
+                            FirstName = "Stina",
+                            LastName = "Anka",
                             OnSite = true,
-                            PhoneNr = "0702523431"
+                            PhoneNr = "0706068293"
                         },
                         new
                         {
                             ID = 11,
-                            DepartmentId = 2,
-                            FirstName = "Katja",
-                            LastName = "Springsteen",
+                            DepartmentId = 1,
+                            FirstName = "Gandalf",
+                            LastName = "Woltersson",
                             OnSite = true,
-                            PhoneNr = "0706218451"
+                            PhoneNr = "0709791736"
                         },
                         new
                         {
                             ID = 12,
-                            DepartmentId = 1,
-                            FirstName = "Savanna",
-                            LastName = "Fritjiofsdottir",
-                            OnSite = true,
-                            PhoneNr = "0707785944"
+                            DepartmentId = 2,
+                            FirstName = "Mattias",
+                            LastName = "Kvackzelius",
+                            OnSite = false,
+                            PhoneNr = "0708189911"
                         },
                         new
                         {
                             ID = 13,
-                            DepartmentId = 2,
-                            FirstName = "Sauron",
-                            LastName = "Daniels",
+                            DepartmentId = 1,
+                            FirstName = "Tyrion",
+                            LastName = "Woltersson",
                             OnSite = true,
-                            PhoneNr = "0704852704"
+                            PhoneNr = "0706906558"
                         },
                         new
                         {
                             ID = 14,
-                            DepartmentId = 1,
-                            FirstName = "Tyrion",
-                            LastName = "Sork",
+                            DepartmentId = 2,
+                            FirstName = "Savanna",
+                            LastName = "Von Röfvenstråhle",
                             OnSite = true,
-                            PhoneNr = "0706283336"
+                            PhoneNr = "0709606035"
                         },
                         new
                         {
                             ID = 15,
                             DepartmentId = 1,
-                            FirstName = "Sauron",
-                            LastName = "Kenttä",
+                            FirstName = "JD",
+                            LastName = "Springsteen",
                             OnSite = true,
-                            PhoneNr = "0705754952"
+                            PhoneNr = "0707911253"
                         },
                         new
                         {
                             ID = 16,
                             DepartmentId = 1,
-                            FirstName = "Krösus",
-                            LastName = "Askrafvsfader",
+                            FirstName = "Savanna",
+                            LastName = "Gandhi",
                             OnSite = true,
-                            PhoneNr = "0703233393"
+                            PhoneNr = "0704955716"
                         },
                         new
                         {
                             ID = 17,
-                            DepartmentId = 1,
-                            FirstName = "Tyrion",
-                            LastName = "Ramone",
+                            DepartmentId = 2,
+                            FirstName = "Kristian",
+                            LastName = "Kvackzelius",
                             OnSite = true,
-                            PhoneNr = "0707433490"
+                            PhoneNr = "0704884948"
                         },
                         new
                         {
                             ID = 18,
-                            DepartmentId = 1,
-                            FirstName = "Lisa",
-                            LastName = "Krunkenstör",
+                            DepartmentId = 2,
+                            FirstName = "Tyrion",
+                            LastName = "Sork",
                             OnSite = false,
-                            PhoneNr = "0705853177"
+                            PhoneNr = "0705765904"
                         },
                         new
                         {
                             ID = 19,
                             DepartmentId = 1,
-                            FirstName = "Krösus",
-                            LastName = "Askrafvsfader",
-                            OnSite = false,
-                            PhoneNr = "0708377980"
+                            FirstName = "Savanna",
+                            LastName = "Krunkenstör",
+                            OnSite = true,
+                            PhoneNr = "0705938969"
                         },
                         new
                         {
                             ID = 20,
                             DepartmentId = 2,
-                            FirstName = "Mario",
-                            LastName = "Gandhi",
-                            OnSite = true,
-                            PhoneNr = "0709480195"
+                            FirstName = "Gandalf",
+                            LastName = "Hormoz",
+                            OnSite = false,
+                            PhoneNr = "0709931932"
                         },
                         new
                         {
                             ID = 21,
                             DepartmentId = 1,
-                            FirstName = "Mattias",
-                            LastName = "Segelspjut",
+                            FirstName = "Kristian",
+                            LastName = "Woltersson",
                             OnSite = true,
-                            PhoneNr = "0705953927"
+                            PhoneNr = "0703191240"
                         },
                         new
                         {
                             ID = 22,
                             DepartmentId = 1,
-                            FirstName = "Nikolaj",
-                            LastName = "Hormoz",
+                            FirstName = "Sauron",
+                            LastName = "Kenttä",
                             OnSite = true,
-                            PhoneNr = "0708280821"
+                            PhoneNr = "0701916869"
                         },
                         new
                         {
                             ID = 23,
-                            DepartmentId = 1,
-                            FirstName = "Ali",
-                            LastName = "Gråskägge",
+                            DepartmentId = 2,
+                            FirstName = "Savanna",
+                            LastName = "Lannister",
                             OnSite = true,
-                            PhoneNr = "0705307237"
+                            PhoneNr = "0706232169"
                         },
                         new
                         {
                             ID = 24,
                             DepartmentId = 1,
-                            FirstName = "Mattias",
-                            LastName = "Gandhi",
+                            FirstName = "Mario",
+                            LastName = "Sainz",
                             OnSite = true,
-                            PhoneNr = "0704031493"
+                            PhoneNr = "0705630139"
                         },
                         new
                         {
                             ID = 25,
-                            DepartmentId = 2,
-                            FirstName = "Stina",
-                            LastName = "Kenttä",
-                            OnSite = false,
-                            PhoneNr = "0705050064"
+                            DepartmentId = 1,
+                            FirstName = "Kalle",
+                            LastName = "Krukskalle",
+                            OnSite = true,
+                            PhoneNr = "0707637357"
                         },
                         new
                         {
                             ID = 26,
                             DepartmentId = 2,
-                            FirstName = "Savanna",
-                            LastName = "Filling",
-                            OnSite = true,
-                            PhoneNr = "0709139384"
+                            FirstName = "Nikolaj",
+                            LastName = "Hormoz",
+                            OnSite = false,
+                            PhoneNr = "0707241332"
                         },
                         new
                         {
                             ID = 27,
                             DepartmentId = 2,
-                            FirstName = "Lisa",
-                            LastName = "Von Röfvenstråhle",
-                            OnSite = true,
-                            PhoneNr = "0701258856"
+                            FirstName = "Silver",
+                            LastName = "Krukskalle",
+                            OnSite = false,
+                            PhoneNr = "0708867520"
                         },
                         new
                         {
                             ID = 28,
                             DepartmentId = 1,
-                            FirstName = "Krösus",
-                            LastName = "Dorian",
-                            OnSite = false,
-                            PhoneNr = "0702435719"
+                            FirstName = "Super",
+                            LastName = "Krukskalle",
+                            OnSite = true,
+                            PhoneNr = "0708778086"
                         },
                         new
                         {
                             ID = 29,
-                            DepartmentId = 2,
-                            FirstName = "Stina",
-                            LastName = "Ramone",
-                            OnSite = true,
-                            PhoneNr = "0707082210"
+                            DepartmentId = 1,
+                            FirstName = "Mattias",
+                            LastName = "Krukskalle",
+                            OnSite = false,
+                            PhoneNr = "0707948570"
                         },
                         new
                         {
                             ID = 30,
                             DepartmentId = 1,
-                            FirstName = "Savanna",
-                            LastName = "Dorian",
-                            OnSite = false,
-                            PhoneNr = "0701247488"
+                            FirstName = "Mario",
+                            LastName = "Vader",
+                            OnSite = true,
+                            PhoneNr = "0703549500"
                         },
                         new
                         {
                             ID = 31,
-                            DepartmentId = 2,
+                            DepartmentId = 1,
                             FirstName = "Nikolaj",
-                            LastName = "Ramone",
+                            LastName = "Pruselius",
                             OnSite = true,
-                            PhoneNr = "0709035034"
+                            PhoneNr = "0705464821"
                         },
                         new
                         {
                             ID = 32,
-                            DepartmentId = 2,
-                            FirstName = "Svetlana",
-                            LastName = "Sainz",
+                            DepartmentId = 1,
+                            FirstName = "Carlos",
+                            LastName = "Kenttä",
                             OnSite = true,
-                            PhoneNr = "0703235656"
+                            PhoneNr = "0702803342"
                         },
                         new
                         {
                             ID = 33,
                             DepartmentId = 2,
-                            FirstName = "Ali",
-                            LastName = "Woltersson",
+                            FirstName = "Nikolaj",
+                            LastName = "Vader",
                             OnSite = true,
-                            PhoneNr = "0709669695"
+                            PhoneNr = "0701595159"
                         },
                         new
                         {
                             ID = 34,
-                            DepartmentId = 2,
-                            FirstName = "Gandalf",
-                            LastName = "Sork",
+                            DepartmentId = 1,
+                            FirstName = "Stina",
+                            LastName = "Gandhi",
                             OnSite = true,
-                            PhoneNr = "0704612832"
+                            PhoneNr = "0706818395"
                         },
                         new
                         {
                             ID = 35,
                             DepartmentId = 2,
-                            FirstName = "Mattias",
-                            LastName = "Filling",
-                            OnSite = true,
-                            PhoneNr = "0704283018"
+                            FirstName = "Super",
+                            LastName = "Dorian",
+                            OnSite = false,
+                            PhoneNr = "0705230568"
                         },
                         new
                         {
                             ID = 36,
                             DepartmentId = 2,
-                            FirstName = "Sauron",
-                            LastName = "Sainz",
+                            FirstName = "Savanna",
+                            LastName = "Kvackzelius",
                             OnSite = false,
-                            PhoneNr = "0704940880"
+                            PhoneNr = "0701694258"
                         },
                         new
                         {
                             ID = 37,
                             DepartmentId = 1,
-                            FirstName = "Savanna",
-                            LastName = "Springsteen",
-                            OnSite = true,
-                            PhoneNr = "0706017866"
+                            FirstName = "Obi-Wan",
+                            LastName = "Sainz",
+                            OnSite = false,
+                            PhoneNr = "0709909125"
                         },
                         new
                         {
                             ID = 38,
                             DepartmentId = 1,
-                            FirstName = "Carlos",
-                            LastName = "Ramone",
-                            OnSite = false,
-                            PhoneNr = "0706361656"
+                            FirstName = "Mario",
+                            LastName = "Askrafvsfader",
+                            OnSite = true,
+                            PhoneNr = "0704939908"
                         },
                         new
                         {
                             ID = 39,
                             DepartmentId = 1,
-                            FirstName = "Mario",
+                            FirstName = "JD",
                             LastName = "Filling",
-                            OnSite = false,
-                            PhoneNr = "0703827665"
+                            OnSite = true,
+                            PhoneNr = "0702746751"
                         },
                         new
                         {
                             ID = 40,
-                            DepartmentId = 1,
-                            FirstName = "Benjamin",
-                            LastName = "Daniels",
-                            OnSite = false,
-                            PhoneNr = "0707999796"
+                            DepartmentId = 2,
+                            FirstName = "Krösus",
+                            LastName = "Gandhi",
+                            OnSite = true,
+                            PhoneNr = "0709370830"
                         },
                         new
                         {
                             ID = 41,
-                            DepartmentId = 1,
-                            FirstName = "Mattias",
-                            LastName = "Ramone",
+                            DepartmentId = 2,
+                            FirstName = "Nikolaj",
+                            LastName = "Kvackzelius",
                             OnSite = true,
-                            PhoneNr = "0703385890"
+                            PhoneNr = "0702491419"
                         },
                         new
                         {
                             ID = 42,
                             DepartmentId = 2,
-                            FirstName = "Ali",
+                            FirstName = "Nikolaj",
                             LastName = "Kvackzelius",
                             OnSite = true,
-                            PhoneNr = "0707644642"
+                            PhoneNr = "0703713699"
                         },
                         new
                         {
                             ID = 43,
-                            DepartmentId = 1,
-                            FirstName = "Kristian",
-                            LastName = "Askrafvsfader",
+                            DepartmentId = 2,
+                            FirstName = "Sauron",
+                            LastName = "Von Röfvenstråhle",
                             OnSite = true,
-                            PhoneNr = "0704797059"
+                            PhoneNr = "0702777152"
                         },
                         new
                         {
                             ID = 44,
                             DepartmentId = 2,
-                            FirstName = "Mattias",
-                            LastName = "Springsteen",
+                            FirstName = "Sauron",
+                            LastName = "Vader",
                             OnSite = true,
-                            PhoneNr = "0709045804"
+                            PhoneNr = "0704532838"
                         },
                         new
                         {
                             ID = 45,
-                            DepartmentId = 2,
-                            FirstName = "Kristian",
-                            LastName = "Von Röfvenstråhle",
+                            DepartmentId = 1,
+                            FirstName = "Carlos",
+                            LastName = "Askrafvsfader",
                             OnSite = true,
-                            PhoneNr = "0703232983"
+                            PhoneNr = "0708051504"
                         },
                         new
                         {
                             ID = 46,
-                            DepartmentId = 1,
-                            FirstName = "Gandalf",
-                            LastName = "Askrafvsfader",
+                            DepartmentId = 2,
+                            FirstName = "Kristian",
+                            LastName = "Lannister",
                             OnSite = true,
-                            PhoneNr = "0703482312"
+                            PhoneNr = "0709445869"
                         },
                         new
                         {
                             ID = 47,
-                            DepartmentId = 1,
-                            FirstName = "Katja",
-                            LastName = "Sork",
-                            OnSite = false,
-                            PhoneNr = "0701930227"
+                            DepartmentId = 2,
+                            FirstName = "Gandalf",
+                            LastName = "Anka",
+                            OnSite = true,
+                            PhoneNr = "0708877565"
                         },
                         new
                         {
                             ID = 48,
-                            DepartmentId = 1,
-                            FirstName = "Tyrion",
-                            LastName = "Askrafvsfader",
+                            DepartmentId = 2,
+                            FirstName = "Svetlana",
+                            LastName = "Springsteen",
                             OnSite = true,
-                            PhoneNr = "0702347394"
+                            PhoneNr = "0702237997"
                         },
                         new
                         {
                             ID = 49,
                             DepartmentId = 2,
-                            FirstName = "Sauron",
-                            LastName = "Sainz",
+                            FirstName = "Stina",
+                            LastName = "Gråskägge",
                             OnSite = true,
-                            PhoneNr = "0707046938"
+                            PhoneNr = "0709803141"
                         },
                         new
                         {
                             ID = 50,
                             DepartmentId = 2,
-                            FirstName = "Benjamin",
-                            LastName = "Segelspjut",
-                            OnSite = true,
-                            PhoneNr = "0709361946"
+                            FirstName = "Super",
+                            LastName = "Ramone",
+                            OnSite = false,
+                            PhoneNr = "0709553831"
                         },
                         new
                         {
                             ID = 51,
-                            DepartmentId = 2,
-                            FirstName = "Stina",
-                            LastName = "Filling",
+                            DepartmentId = 1,
+                            FirstName = "Super",
+                            LastName = "Von Röfvenstråhle",
                             OnSite = true,
-                            PhoneNr = "0703306541"
+                            PhoneNr = "0705046259"
                         },
                         new
                         {
                             ID = 52,
-                            DepartmentId = 1,
-                            FirstName = "Sauron",
-                            LastName = "Segelspjut",
+                            DepartmentId = 2,
+                            FirstName = "Silver",
+                            LastName = "Krunkenstör",
                             OnSite = true,
-                            PhoneNr = "0709072981"
+                            PhoneNr = "0703857499"
                         },
                         new
                         {
                             ID = 53,
                             DepartmentId = 1,
-                            FirstName = "Lisa",
-                            LastName = "Gandhi",
+                            FirstName = "Kristian",
+                            LastName = "Anka",
                             OnSite = true,
-                            PhoneNr = "0706713201"
+                            PhoneNr = "0708584367"
                         },
                         new
                         {
                             ID = 54,
                             DepartmentId = 1,
-                            FirstName = "Obi-Wan",
-                            LastName = "Segelspjut",
+                            FirstName = "Mario",
+                            LastName = "Daniels",
                             OnSite = true,
-                            PhoneNr = "0707348668"
+                            PhoneNr = "0709280634"
                         },
                         new
                         {
                             ID = 55,
-                            DepartmentId = 2,
-                            FirstName = "Obi-Wan",
-                            LastName = "Ramone",
-                            OnSite = false,
-                            PhoneNr = "0705022184"
+                            DepartmentId = 1,
+                            FirstName = "Katja",
+                            LastName = "Springsteen",
+                            OnSite = true,
+                            PhoneNr = "0705917443"
                         },
                         new
                         {
                             ID = 56,
-                            DepartmentId = 1,
-                            FirstName = "Carla",
-                            LastName = "Vader",
+                            DepartmentId = 2,
+                            FirstName = "Obi-Wan",
+                            LastName = "Von Röfvenstråhle",
                             OnSite = true,
-                            PhoneNr = "0703935736"
+                            PhoneNr = "0707631929"
                         },
                         new
                         {
                             ID = 57,
                             DepartmentId = 1,
-                            FirstName = "Katja",
-                            LastName = "Von Röfvenstråhle",
+                            FirstName = "Savanna",
+                            LastName = "Vader",
                             OnSite = true,
-                            PhoneNr = "0708317501"
+                            PhoneNr = "0702376117"
                         },
                         new
                         {
                             ID = 58,
                             DepartmentId = 1,
-                            FirstName = "Krösus",
-                            LastName = "Vader",
+                            FirstName = "Carlos",
+                            LastName = "Lannister",
                             OnSite = true,
-                            PhoneNr = "0705917194"
+                            PhoneNr = "0707067954"
                         },
                         new
                         {
                             ID = 59,
                             DepartmentId = 2,
-                            FirstName = "Krösus",
-                            LastName = "Kenttä",
+                            FirstName = "Kalle",
+                            LastName = "Fritjiofsdottir",
                             OnSite = true,
-                            PhoneNr = "0702922392"
+                            PhoneNr = "0702421279"
                         },
                         new
                         {
                             ID = 60,
-                            DepartmentId = 1,
-                            FirstName = "Kristian",
-                            LastName = "Anka",
+                            DepartmentId = 2,
+                            FirstName = "Katja",
+                            LastName = "Woltersson",
                             OnSite = true,
-                            PhoneNr = "0703164559"
+                            PhoneNr = "0702460664"
                         },
                         new
                         {
                             ID = 61,
-                            DepartmentId = 2,
-                            FirstName = "Sauron",
+                            DepartmentId = 1,
+                            FirstName = "Carla",
                             LastName = "Daniels",
                             OnSite = true,
-                            PhoneNr = "0708494329"
+                            PhoneNr = "0705983522"
                         },
                         new
                         {
                             ID = 62,
-                            DepartmentId = 1,
-                            FirstName = "Obi-Wan",
-                            LastName = "Woltersson",
+                            DepartmentId = 2,
+                            FirstName = "Kristian",
+                            LastName = "Krukskalle",
                             OnSite = true,
-                            PhoneNr = "0703366846"
+                            PhoneNr = "0707711562"
                         },
                         new
                         {
                             ID = 63,
                             DepartmentId = 1,
-                            FirstName = "Carlos",
-                            LastName = "Ek",
+                            FirstName = "Tyrion",
+                            LastName = "Pruselius",
                             OnSite = true,
-                            PhoneNr = "0702090193"
+                            PhoneNr = "0701244182"
                         },
                         new
                         {
                             ID = 64,
-                            DepartmentId = 1,
-                            FirstName = "Carla",
-                            LastName = "Gråskägge",
+                            DepartmentId = 2,
+                            FirstName = "JD",
+                            LastName = "Sork",
                             OnSite = true,
-                            PhoneNr = "0704800307"
+                            PhoneNr = "0704563426"
                         },
                         new
                         {
                             ID = 65,
                             DepartmentId = 2,
-                            FirstName = "Carla",
-                            LastName = "Lannister",
+                            FirstName = "Sauron",
+                            LastName = "Gandhi",
                             OnSite = true,
-                            PhoneNr = "0703848073"
+                            PhoneNr = "0705312343"
                         },
                         new
                         {
                             ID = 66,
                             DepartmentId = 2,
-                            FirstName = "Kalle",
-                            LastName = "Fritjiofsdottir",
+                            FirstName = "Sauron",
+                            LastName = "Kenttä",
                             OnSite = true,
-                            PhoneNr = "0702928516"
+                            PhoneNr = "0707614470"
                         },
                         new
                         {
                             ID = 67,
-                            DepartmentId = 1,
-                            FirstName = "Obi-Wan",
-                            LastName = "Ramone",
+                            DepartmentId = 2,
+                            FirstName = "Mario",
+                            LastName = "Segelspjut",
                             OnSite = true,
-                            PhoneNr = "0706057234"
+                            PhoneNr = "0702262464"
                         },
                         new
                         {
                             ID = 68,
-                            DepartmentId = 2,
-                            FirstName = "Mario",
-                            LastName = "Pruselius",
+                            DepartmentId = 1,
+                            FirstName = "Svetlana",
+                            LastName = "Woltersson",
                             OnSite = true,
-                            PhoneNr = "0703676971"
+                            PhoneNr = "0705665027"
                         },
                         new
                         {
                             ID = 69,
                             DepartmentId = 1,
-                            FirstName = "Katja",
-                            LastName = "Kenttä",
-                            OnSite = false,
-                            PhoneNr = "0701442496"
+                            FirstName = "Carla",
+                            LastName = "Sork",
+                            OnSite = true,
+                            PhoneNr = "0702695376"
                         },
                         new
                         {
                             ID = 70,
-                            DepartmentId = 2,
-                            FirstName = "Krösus",
-                            LastName = "Krunkenstör",
+                            DepartmentId = 1,
+                            FirstName = "Nikolaj",
+                            LastName = "Segelspjut",
                             OnSite = true,
-                            PhoneNr = "0707433827"
+                            PhoneNr = "0705828015"
                         });
                 });
 

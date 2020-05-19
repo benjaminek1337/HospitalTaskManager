@@ -1,39 +1,40 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
+import { map } from "rxjs/operators"
 import { DatePipe } from '@angular/common';
 
-export class Procedure {
+export interface Procedure {
     id: number;
     deptId: number;
     text: string;
     startDate: Date;
     endDate: Date;
-    isHandled:Boolean;
+    isHandled:boolean;
 }
 
 export interface Staff {
-    FirstName: string;
-    LastName: string;
-    ID: number;
-    DepartmentId: number;
-    PhoneNr: string;
-    OnSite:boolean;
+    firstName: string;
+    lastName: string;
+    id: number;
+    departmentId: number;
+    phoneNr: string;
+    onSite:boolean;
 }
 
-export class Schedule {
+export interface Schedule {
     id: number;
     startDate: Date;
     endDate: Date;
     staffId: number;
 }
 
-export class Department {
+export interface Department {
     id: number;
-    text: string;
+    departmentName: string;
 }
 
-export class Procedure_Schedule {
+export interface Procedure_Schedule {
     procedureId: number;
     scheduleId: number;
     keyPerson: boolean;
@@ -55,9 +56,10 @@ export class ScheduledProcedure {
     staffId: number[];
     procedureId: number;
     statusId: number;
+    isHandled: boolean;
 }
 
-export class ProcedureStatus {
+export interface ProcedureStatus {
     id: number;
     text: string;
     color: string;
@@ -84,8 +86,6 @@ let procedureStatusData: ProcedureStatus[] = [
 @Injectable()
 export class Service {
 
-    //TODO FIXA DATUM TILL ALLA CALLS SOM KRÄVE DEM
-
     url:string = "https://localhost:44336/api/schedule/";
     http:HttpClient;
     datePipe:DatePipe;
@@ -94,8 +94,10 @@ export class Service {
         this.datePipe = datePipe;
      }
 
-    GetInitScheduleData(date:Date):Observable<any[]> {
-        return this.http.get<AllData[]>(this.url + "initdata/" + this.datePipe.transform(date, "yyyy-MM-dd"));
+    GetInitScheduleData(date:Date):Observable<AllData> {
+        
+        
+        return this.http.get<AllData>(this.url + "initdata/" + this.datePipe.transform(date, "yyyy-MM-dd"));
         // let staffs = this.GetStaff(date);
         // let schedules = this.getSchedule(date);
         // let procedures = this.getProcedures(date);
@@ -104,28 +106,32 @@ export class Service {
 
     }
 
-    getSchedule(date:Date):Observable<Schedule[]> {
-        return this.http.get<Schedule[]>(this.url + "schedules/" + this.datePipe.transform(date, "yyyy-MM-dd"));
+    getSchedule(date:Date):Observable<any[]> {
+                return this.http.get<any[]>(this.url + "schedules/" + this.datePipe.transform(date, "yyyy-MM-dd"));
     }
 
-    getDepartment():Observable<Department[]> {
-        return this.http.get<Department[]>(this.url + "departments");
+    getDepartment():Observable<any[]> {
+        return this.http.get<any[]>(this.url + "departments");
     }
 
-    getProcedures(date:Date):Observable<Procedure[]> {
-        return this.http.get<Procedure[]>(this.url + "procedures/" + this.datePipe.transform(date, "yyyy-MM-dd"));
+    getProcedures(date:Date):Observable<any[]> {
+        return this.http.get<any[]>(this.url + "procedures/" + this.datePipe.transform(date, "yyyy-MM-dd"));
     }
 
-    getProcedure_Schedule(date:Date):Observable<Procedure_Schedule[]>{
-        return this.http.get<Procedure_Schedule[]>(this.url + "scheduledprocedures/" + this.datePipe.transform(date, "yyyy-MM-dd"));
+    getProcedure_Schedule(date:Date):Observable<any[]>{
+        return this.http.get<any[]>(this.url + "scheduledprocedures/" + this.datePipe.transform(date, "yyyy-MM-dd"));
     }
 
     getStatus() {
         return procedureStatusData;
     }
 
-    GetStaff(date:Date):Observable<Staff[]>{
-        return this.http.get<Staff[]>(this.url + "staff/" + this.datePipe.transform(date, "yyyy-MM-dd"));
+    GetStaff():Observable<any[]>{
+        return this.http.get<any[]>(this.url + "staff");
+    }
+
+    MarkProcedureAsHandled(id:number, procedure:Procedure):Observable<void>{
+        return this.http.put<void>(this.url + "markprocedureashandled/" + id, procedure);
     }
 
 }

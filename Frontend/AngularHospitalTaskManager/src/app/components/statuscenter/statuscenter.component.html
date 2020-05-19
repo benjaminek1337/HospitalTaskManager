@@ -1,15 +1,19 @@
-<div class=statusBox>
-    <h1>Avvikelser</h1>
+<div class=statusBox *ngIf="isLoaded == true">
+    <h1>Avvikelser ({{ deviationCount.toString() }} st)</h1>
     <ul>
         <li *ngFor="let item of GetDeviantProceduresStatus(); let i = index">
 
             <div class="deviationHeader">
                 <h4>{{item.procedure}}</h4>
                 <div *ngIf="item.hasDeviated === 1">
-                    <p>Avvikelse skedde för {{ item.minutesLate }} minuter sedan</p>
+                    <p *ngIf="item.minutesLate != 1">Avvikelse skedde för {{ item.minutesLate }} minuter sedan</p>
+                    <p *ngIf="item.minutesLate == 1">Avvikelse skedde för {{ item.minutesLate }} minut sedan</p>
+                    <!-- <p *ngIf="item.minutesLate >= 60">Avvikelse skedde för {{ item.minutesLate / 60 }} timmar sedan</p> -->
                 </div>
                 <div *ngIf="item.hasDeviated === 0">
-                    <p>Avvikelse sker om {{ item.minutesLate }} minuter</p>
+                    <p *ngIf="item.minutesLate != 1">Avvikelse sker om {{ item.minutesLate }} minuter</p>
+                    <p *ngIf="item.minutesLate == 1">Avvikelse sker om {{ item.minutesLate }} minut</p>
+                    <!-- <p *ngIf="item.minutesLate >= 60">Avvikelse sker om {{ item.minutesLate / 60 }} timma</p> -->
                 </div>
             </div>
             <br>

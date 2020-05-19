@@ -9,11 +9,12 @@ namespace HospitalTaskManagerWebAPI.Data
 {
     public interface IRepository
     {
-        List<Staff> GetTodaysStaff(DateTime date);
+        List<Staff> GetTodaysStaff();
         List<Schedule> GetTodaysSchedule(DateTime date);
         List<Procedure> GetTodaysProcedures(DateTime date);
         List<ScheduledProcedure> GetTodaysScheduledProcedures(DateTime date);
         List<Department> GetDepartments();
-        List<AllDataViewModel> GetInitScheduleData(DateTime date);
+        AllDataViewModel GetInitScheduleData(DateTime date);
+        void MarkProcedureAsHandled(Procedure procedure);
     }
 }

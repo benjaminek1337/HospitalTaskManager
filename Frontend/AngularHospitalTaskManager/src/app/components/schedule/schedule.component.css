@@ -1,9 +1,9 @@
 ::ng-deep .dx-scheduler-cell-sizes-horizontal {
-    max-width: 25px;
+    max-width: 25px !important;
 }
 
 /* ::ng-deep .dx-scheduler-cell-sizes-vertical {
-    max-height: 55px;
+    max-height: 300px;
 } */
 
 /* ::ng-deep .dx-scheduler {

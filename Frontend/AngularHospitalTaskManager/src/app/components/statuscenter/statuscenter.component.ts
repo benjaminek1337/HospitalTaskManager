@@ -13,15 +13,17 @@ export class StatuscenterComponent implements OnInit {
   @Input()scheduledProcedureData:ScheduledProcedure[];
   @Input()scheduleData:Schedule[];
   @Input()staffData:Staff[];
-  //currentDate: Date = new Date();
-  currentDate:Date = new Date("2020-05-11 11:00");
-
+  currentDate: Date = new Date();
+  deviationCount:Number;
+  //currentDate:Date = new Date("2020-05-14 11:00");
+  isLoaded:boolean;
   constructor(service:Service) {}
 
 
   interval1: any;
   ngOnInit() {
-      this.interval1 = setInterval(() => { this.GetDeviantProceduresStatus(); }, 1000);
+      this.GetDeviantProceduresStatus();
+      this.interval1 = setInterval(() => { this.GetDeviantProceduresStatus(); }, 30000);
   }
 
   ngOnDestroy() {
@@ -31,16 +33,16 @@ export class StatuscenterComponent implements OnInit {
   GetMinutesLate(procedure:ScheduledProcedure){
     let goingToOrHasDeviated:{ minutesLate:number, hasDeviated:number };
     
-    if (this.currentDate.getTime() >= procedure.startDate.getTime()){
+    if (this.currentDate.getTime() >= Date.parse(procedure.startDate.toString())){
       goingToOrHasDeviated = {
-        minutesLate: Math.round(this.currentDate.getTime()/60000 - procedure.startDate.getTime()/60000),
+        minutesLate: Math.round(this.currentDate.getTime()/60000 - Date.parse(procedure.startDate.toString())/60000),
         hasDeviated: 1 
       }
     }
     else{
       
       goingToOrHasDeviated = {
-        minutesLate: Math.round(procedure.startDate.getTime()/60000 - this.currentDate.getTime()/60000),
+        minutesLate: Math.round(Date.parse(procedure.startDate.toString())/60000 - Date.parse(this.currentDate.toString())/60000),
         hasDeviated: 0 
       }
     }
@@ -54,6 +56,8 @@ export class StatuscenterComponent implements OnInit {
   }
 
   GetDeviantProceduresStatus(){
+    this.isLoaded = false;
+    
     let deviants:{ procedure:string, staff?:Staff[], minutesLate:number, hasDeviated:number}[] = [];
     let deviant:{ procedure:string, staff?:Staff[], minutesLate:number, hasDeviated:number};
     let deviantProcedures:ScheduledProcedure[] = this.scheduledProcedureData.filter(p => p.statusId === 2 || p.statusId === 3);
@@ -80,6 +84,8 @@ export class StatuscenterComponent implements OnInit {
       };
       deviants.push(deviant)
     }
+    this.isLoaded = true;
+    this.deviationCount = deviants.length;
     return this.GetSortedDeviations(deviants);
   }
 

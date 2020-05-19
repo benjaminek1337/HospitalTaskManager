@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Remotion.Linq.Parsing.Structure.IntermediateModel;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 
 namespace HospitalTaskManagerWebAPI.Controllers
 {
@@ -24,10 +25,10 @@ namespace HospitalTaskManagerWebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("Staff/{date}")]
-        public ActionResult<IEnumerable<Staff>> GetStaff(DateTime date)
+        [Route("Staff")]
+        public ActionResult<IEnumerable<Staff>> GetStaff()
         {
-            return repo.GetTodaysStaff(date);
+            return repo.GetTodaysStaff();
         }
 
         [HttpGet]
@@ -59,12 +60,20 @@ namespace HospitalTaskManagerWebAPI.Controllers
         }
         [HttpGet]
         [Route("initdata/{date}")]
-        public ActionResult<IEnumerable<AllDataViewModel>> GetSchedulerInitialData(DateTime date)
+        public ActionResult<AllDataViewModel> GetSchedulerInitialData(DateTime date)
         {
             //var json = JsonConvert.SerializeObject(repo.GetInitScheduleData(date), Formatting.Indented);
             //return json;
 
             return repo.GetInitScheduleData(date);
+        }
+
+        //[Route("markprocedureashandled/{id}")]
+        [HttpPut("markprocedureashandled/{id}")]
+        public void MarkProcedureAsHandled(int id, [FromBody]Procedure procedure)
+        {
+            if(id == procedure.ID)
+                repo.MarkProcedureAsHandled(procedure);
         }
 
     }   

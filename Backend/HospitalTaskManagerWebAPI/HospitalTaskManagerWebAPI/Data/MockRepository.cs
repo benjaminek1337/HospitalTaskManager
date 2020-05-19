@@ -36,12 +36,20 @@ namespace HospitalTaskManagerWebAPI.Data
                 "Stina",
                 "Krösus",
                 "Gandalf",
-                "CourageWolf",
+                "Lisa",
                 "Mario",
                 "Super",
                 "Nikolaj",
                 "Svetlana",
-                "Tyrion"
+                "Tyrion",
+                "Sauron",
+                "Obi-Wan",
+                "Kristian",
+                "Ali",
+                "Carlos",
+                "Carla",
+                "JD"
+
             });
             lastNames.AddRange(new List<string>{
                 "Ek",
@@ -54,15 +62,20 @@ namespace HospitalTaskManagerWebAPI.Data
                 "Segelspjut",
                 "Fritjiofsdottir",
                 "Krunkenstör",
-                "Adrafsfader",
+                "Askrafvsfader",
                 "Von Röfvenstråhle",
                 "Kenttä",
                 "Ramone",
-                "Skraputnik",
-                "Mario",
+                "Daniels",
+                "Pruselius",
                 "Springsteen",
                 "Filling",
-                "Lannister"
+                "Lannister",
+                "Vader",
+                "Sainz",
+                "Gandhi",
+                "Krukskalle",
+                "Dorian"
             });
             procedureNames.AddRange(new List<string>
             {
@@ -80,7 +93,6 @@ namespace HospitalTaskManagerWebAPI.Data
                 "Tömma ryggradsvätska",
                 "Ge filiduttvaccin",
                 "Genkodning",
-                "Dyrka Satan",
                 "Rutinkontroll",
                 "Skälla ut praktikanten",
                 "Programmera statuslistan"
@@ -91,27 +103,39 @@ namespace HospitalTaskManagerWebAPI.Data
                 DepartmentName = "Coola avdelningen"
             };
             departments.Add(department);
-            bool onSite = false;
-
-            for (int i = 0; i < 50; i++)
+            var department2 = new Department
             {
+                ID = 2,
+                DepartmentName = "Mindre coola avdelningen"
+            }; departments.Add(department2);
+            
+            
+
+            for (int i = 0; i < 70; i++)
+            {
+                bool onSite = false;
+                int dept = 1;
                 if (random.Next(0, 10) > 1)
                 {
                     onSite = true;
+                }
+                if (random.Next(0, 10) >= 5)
+                {
+                    dept = 2;
                 }
                 var staff = new Staff
                 {
                     FirstName = firstNames[random.Next(0, firstNames.Count)],
                     LastName = lastNames[random.Next(0, lastNames.Count)],
-                    DepartmentId = 1,
+                    DepartmentId = dept,
                     ID = i + 1,
                     PhoneNr = "070" + random.Next(1000000, 9999999).ToString(),
                     OnSite = onSite
                 }; staffs.Add(staff);
             }
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 70; i++)
             {
-                var startDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day, random.Next(7, 16), 00, 00);
+                var startDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day, random.Next(6, 16), 00, 00);
                 var endDate = new DateTime(startDate.Year, startDate.Month, startDate.Day, (startDate.Hour + random.Next(7, 8)), 00, 00);
 
                 var s = new Schedule
@@ -124,8 +148,8 @@ namespace HospitalTaskManagerWebAPI.Data
             }
             for (int i = 0; i < 60; i++)
             {
-                var startDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day, random.Next(7, 18), 00, 00);
-                var endDate = new DateTime(startDate.Year, startDate.Month, startDate.Day, (startDate.Hour + random.Next(1, 3)), 00, 00);
+                var startDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day, random.Next(7, 17), 00, 00);
+                var endDate = new DateTime(startDate.Year, startDate.Month, startDate.Day, (startDate.Hour + random.Next(1, 4)), 00, 00);
 
                 var p = new Procedure
                 {
@@ -200,11 +224,6 @@ namespace HospitalTaskManagerWebAPI.Data
 
         }
 
-        public List<Staff> GetTodaysStaff(DateTime date)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Schedule> GetTodaysSchedule(DateTime date)
         {
             throw new NotImplementedException();
@@ -220,7 +239,12 @@ namespace HospitalTaskManagerWebAPI.Data
             throw new NotImplementedException();
         }
 
-        public List<AllDataViewModel> GetInitScheduleData(DateTime date)
+        public AllDataViewModel GetInitScheduleData(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MarkProcedureAsHandled(Procedure procedure)
         {
             throw new NotImplementedException();
         }

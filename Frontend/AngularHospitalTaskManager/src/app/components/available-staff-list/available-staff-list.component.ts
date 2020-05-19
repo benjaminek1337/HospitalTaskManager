@@ -9,19 +9,17 @@ import { DxoSearchPanelModule } from 'devextreme-angular/ui/nested';
 })
 export class AvailableStaffListComponent implements OnInit {
 
-  // staffData:Staff[];
-  // scheduleData:Schedule[];
-  // scheduledProcedureData:ScheduledProcedure[];
-
   @Input()_scheduledProcedureData:ScheduledProcedure[];
   @Input()_scheduleData:Schedule[];
   @Input()_staffData:Staff[];
 
   availableStaff:Staff[];
   availableStaffOWH:Staff[];
+  availableStaffCount:number;
+  availableStaffOWHCount:number;
 
-  //currentTime:Date = new Date();
-  currentTime:Date = new Date("2020-05-11 11:00");
+  currentTime:Date = new Date();
+  //currentTime:Date = new Date("2020-05-14 11:00");
   
   search;
 
@@ -53,19 +51,22 @@ export class AvailableStaffListComponent implements OnInit {
 
       for (let j = 0; j < scheduledProcedures.length; j++) {
         const element = scheduledProcedures[j];
-        if(element.startDate <= this.currentTime && this.currentTime <= element.endDate)
+        if(Date.parse(element.startDate.toString()) <= this.currentTime.getTime() 
+        && this.currentTime.getTime() <= Date.parse(element.endDate.toString()))
         {
           isAvailable = false;
           break;
         }
       }
-      if(schedule == null || this.currentTime < schedule.startDate || this.currentTime > schedule.endDate){
+      if(schedule == null || this.currentTime.getTime() < Date.parse(schedule.startDate.toString()) 
+      || this.currentTime.getTime() > Date.parse(schedule.endDate.toString())){
         isAvailable = false;
       }
       if(isAvailable && staff.onSite){
         availableStaff.push(staff);
       }
     }
+    this.availableStaffCount = availableStaff.length;
     return availableStaff;
   }
 
@@ -80,20 +81,24 @@ export class AvailableStaffListComponent implements OnInit {
 
       for (let j = 0; j < scheduledProcedures.length; j++) {
         const element = scheduledProcedures[j];
-        if(element.startDate <= this.currentTime && this.currentTime <= element.endDate)
+        if(Date.parse(element.startDate.toString()) <= this.currentTime.getTime() 
+        && this.currentTime.getTime() <= Date.parse(element.endDate.toString()))
         {
           isAvailable = false;
           break;
         }
       }
-      if(schedule != null && this.currentTime > schedule.startDate && this.currentTime < schedule.endDate){
+      if(schedule != null && this.currentTime.getTime() > Date.parse(schedule.startDate.toString()) 
+      && this.currentTime.getTime() < Date.parse(schedule.endDate.toString())){
         isAvailable = false;
       }
       if(isAvailable && staff.onSite){
         availableStaffOWH.push(staff);
       }
     }
+    this.availableStaffOWHCount = availableStaffOWH.length;
     return availableStaffOWH;
   }
+
 
 }
