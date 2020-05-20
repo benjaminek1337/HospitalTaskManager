@@ -63,5 +63,13 @@ namespace HospitalTaskManagerWebAPI.Data
             context.Update(updatedProcedure);
             context.SaveChanges();
         }
+
+        public void MarkProcedureAsUnhandled(Procedure procedure)
+        {
+            var updatedProcedure = context.Procedures.FirstOrDefault(p => p.ID == procedure.ID);
+            updatedProcedure.IsHandled = false;
+            context.Update(updatedProcedure);
+            context.SaveChanges();
+        }
     }
 }

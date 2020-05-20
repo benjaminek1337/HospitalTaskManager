@@ -1,4 +1,5 @@
 <div class="scheduler" *ngIf="isLoaded">
+    <!-- dataCellTemplate="dataCellTemplate" -->
     <dx-scheduler 
         [views]='["Dagtid"]' 
         [dataSource]="scheduledProcedureData" 
@@ -14,7 +15,7 @@
         [cellDuration]="15" 
         appointmentTooltipTemplate="tooltipTemplate" 
         appointmentTemplate="appointmentTemplate"
-        dataCellTemplate="dataCellTemplate"
+
         resourceCellTemplate="resourceCellTemplate"
         crossScrollingEnabled="true"
         timeCellTemplate="timeCellTemplate"
@@ -71,8 +72,8 @@
             </div>
         </div>
     
-        <div *dxTemplate="let model of 'tooltipTemplate'" (click)="DisableClickEvent($event)">
-            <div class="appointmentTooltip">
+        <div *dxTemplate="let model of 'tooltipTemplate'">
+            <div class="appointmentTooltip" (click)="StopPropagnation($event)">
                 <div class="tooltipHeader">
                     <h4>{{model.appointmentData.text}}</h4>
                     <p>Status: {{ GetProcedureStatus(model.appointmentData.statusId).text }}</p>
@@ -98,8 +99,12 @@
                     </ul>
                     <br>
                 </div>
-                <div class="tooltipDeviation" *ngIf="model.appointmentData.statusId == 3">
-                    <button mat-raised-button color="accent" (click)="MarkProcedureAsHandled(model.appointmentData.id)">Markera som hanterad</button>
+                <div class="tooltipDeviation" *ngIf="model.appointmentData.statusId == 2 || model.appointmentData.statusId == 3 ">
+                    <button mat-raised-button color="accent" (click)="MarkProcedureAsHandled(model.appointmentData.procedureId)">Markera som hanterad</button>
+                    <br>
+                </div>
+                <div class="tooltipDeviation" *ngIf="model.appointmentData.isHandled == true">
+                    <button mat-raised-button color="accent" (click)="MarkProcedureAsUnhandled(model.appointmentData.procedureId)">Markera som avvikande</button>
                     <br>
                 </div>
             </div>

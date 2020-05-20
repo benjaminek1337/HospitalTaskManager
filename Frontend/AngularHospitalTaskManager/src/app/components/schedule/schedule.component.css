@@ -9,7 +9,9 @@
 /* ::ng-deep .dx-scheduler {
     width: 74%;
 } */
-
+::ng-deep .dx-state-focused{
+    background-color: transparent;
+}
 .scheduler{
     float:left;
     width:80%;

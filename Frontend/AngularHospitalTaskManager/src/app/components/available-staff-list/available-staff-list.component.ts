@@ -67,6 +67,7 @@ export class AvailableStaffListComponent implements OnInit {
       }
     }
     this.availableStaffCount = availableStaff.length;
+    //setTimeout(() => {this.ngOnInit()}, 150);
     return availableStaff;
   }
 
@@ -97,6 +98,7 @@ export class AvailableStaffListComponent implements OnInit {
       }
     }
     this.availableStaffOWHCount = availableStaffOWH.length;
+    //setTimeout(() => {this.ngOnInit()}, 150);
     return availableStaffOWH;
   }
 

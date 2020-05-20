@@ -22,7 +22,8 @@ import { MatListModule } from '@angular/material/list';
 import { DxSchedulerModule } from 'devextreme-angular';
 import { StatuscenterComponent } from './components/statuscenter/statuscenter.component';
 import { AvailableStaffListComponent } from './components/available-staff-list/available-staff-list.component';
-import { DatePipe} from "@angular/common"
+import { DatePipe} from "@angular/common";
+import { ScheduleLoaderComponent } from './components/schedule-loader/schedule-loader.component'
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { DatePipe} from "@angular/common"
     routesComponent,
     StatuscenterComponent,
     AvailableStaffListComponent,
+    ScheduleLoaderComponent,
   ],
   imports: [
     BrowserModule,

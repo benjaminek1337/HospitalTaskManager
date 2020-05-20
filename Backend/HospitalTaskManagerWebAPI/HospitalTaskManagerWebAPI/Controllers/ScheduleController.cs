@@ -68,12 +68,18 @@ namespace HospitalTaskManagerWebAPI.Controllers
             return repo.GetInitScheduleData(date);
         }
 
-        //[Route("markprocedureashandled/{id}")]
         [HttpPut("markprocedureashandled/{id}")]
         public void MarkProcedureAsHandled(int id, [FromBody]Procedure procedure)
         {
             if(id == procedure.ID)
                 repo.MarkProcedureAsHandled(procedure);
+        }
+
+        [HttpPut("markprocedureasunhandled/{id}")]
+        public void MarkProcedureAsUnhandled(int id, [FromBody]Procedure procedure)
+        {
+            if (id == procedure.ID)
+                repo.MarkProcedureAsUnhandled(procedure);
         }
 
     }   

@@ -16,5 +16,6 @@ namespace HospitalTaskManagerWebAPI.Data
         List<Department> GetDepartments();
         AllDataViewModel GetInitScheduleData(DateTime date);
         void MarkProcedureAsHandled(Procedure procedure);
+        void MarkProcedureAsUnhandled(Procedure procedure);
     }
 }

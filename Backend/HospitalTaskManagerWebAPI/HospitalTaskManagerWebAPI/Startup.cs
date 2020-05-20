@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
 using System.Buffers;
+using Microsoft.AspNetCore.SignalR;
 
 namespace HospitalTaskManagerWebAPI
 {
@@ -39,6 +40,7 @@ namespace HospitalTaskManagerWebAPI
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 }, ArrayPool<char>.Shared));
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSignalR();
 
             services.AddTransient<IRepository, Repository>();
 
@@ -77,6 +79,7 @@ namespace HospitalTaskManagerWebAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseCors(builder => 
             builder.WithOrigins("http://localhost:4200")
             .AllowAnyHeader()

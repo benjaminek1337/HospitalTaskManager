@@ -248,5 +248,10 @@ namespace HospitalTaskManagerWebAPI.Data
         {
             throw new NotImplementedException();
         }
+
+        public void MarkProcedureAsUnhandled(Procedure procedure)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

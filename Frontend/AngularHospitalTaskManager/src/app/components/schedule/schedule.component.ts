@@ -20,7 +20,8 @@ export class ScheduleComponent {
     procedureData: Procedure[];
     scheduleData: Schedule[];
     procedure_scheduleData:Procedure_Schedule[];
-    scheduledProcedureData: ScheduledProcedure[];
+    //scheduledProcedureData: DataSource;
+    scheduledProcedureData:ScheduledProcedure[];
     statusData: ProcedureStatus[];
     staffData: Staff[];
     scheduledStaff: Staff[];
@@ -37,20 +38,15 @@ export class ScheduleComponent {
 
     @Input() datacells;
     cellData:{staffId:number, startDate:Date, endDate:Date}[] = [];
-    ds:DataSource;
 
     constructor(private service: Service) {
     }
 
     polling: any;
+    polling2: any;
     ngOnInit() {
         this.AzynkronusKonztraaktor();
-        setTimeout(() => {this.RestOfShit();}, 1500);
-        
-        this.ds = new DataSource({
-
-        });
-        
+        setTimeout(() => {this.RestOfShit();}, 750);        
     }
 
     async AzynkronusKonztraaktor(){
@@ -100,7 +96,7 @@ export class ScheduleComponent {
                         text: res.ProcedureName,
                         startDate: res.StartDate,
                         endDate: res.EndDate,
-                        isHandled: res.isHandled
+                        isHandled: res.IsHandled
                     }
                 }
             )
@@ -122,18 +118,20 @@ export class ScheduleComponent {
 
     RestOfShit(){
         this.statusData = this.service.getStatus();
+        //this.scheduledProcedureData = new DataSource ({store: this.getScheduledProcedures()});
         this.scheduledProcedureData = this.getScheduledProcedures();
         this.scheduledStaff = this.GetScheduledStaff();
         locale(navigator.language);
         this.CheckProcedureStatus();
         this.polling = setInterval(() => { this.CheckProcedureStatus(); }, 60000);
+        this.polling2 = setInterval(() => {this.AzynkronusKonztraaktor();}, 60000);
         this.isLoaded = true;
         this.isWorkTimeLoaded = false;
-        this.GenerateCellData();
     }
 
     ngOnDestroy() {
         clearInterval(this.polling);
+        clearInterval(this.polling2);
     }
 
     DisableClickEvent(e){
@@ -144,10 +142,56 @@ export class ScheduleComponent {
         e.component._popup.hide();
     }
 
-    MarkProcedureAsHandled(id:number):void {
+    StopPropagnation(e){
+        e.stopPropagation();
+    }
+
+    async MarkProcedureAsHandled(id:number) {
         let procedure = this.GetProcedure(id);
         this.service.MarkProcedureAsHandled(id, procedure).subscribe();
+        await this.service.getProcedures(this.mockDate).toPromise()
+        .then( data => {
+            this.procedureData = data.map(
+                res => {
+                    return {
+                        id: res.ID,
+                        deptId: res.DepartmentId,
+                        text: res.ProcedureName,
+                        startDate: res.StartDate,
+                        endDate: res.EndDate,
+                        isHandled: res.IsHandled
+                    }
+                }
+            )
+        });
+        // console.log(this.procedureData);
         this.CheckProcedureStatus();
+        this.ngOnInit();
+        console.log("handled")
+    }
+
+    async MarkProcedureAsUnhandled(id:number) {
+        let procedure = this.GetProcedure(id);
+        this.service.MarkProcedureAsUnhandled(id, procedure).subscribe();
+        await this.service.getProcedures(this.mockDate).toPromise()
+        .then( data => {
+            this.procedureData = data.map(
+                res => {
+                    return {
+                        id: res.ID,
+                        deptId: res.DepartmentId,
+                        text: res.ProcedureName,
+                        startDate: res.StartDate,
+                        endDate: res.EndDate,
+                        isHandled: res.IsHandled
+                    }
+                }
+            )
+        });
+
+        this.CheckProcedureStatus();
+        this.ngOnInit();
+        console.log("unhandled")
     }
 
     GetScheduledStaff():Staff[]{
@@ -183,14 +227,15 @@ export class ScheduleComponent {
             else if (staff.find(item => item.onSite == false)) {
                 if (Date.parse(p.startDate.toString()) < this.currentDate.getTime()) {
                     p.statusId = 3;
-                    //TODO SEN kanske se till att 3600000 är justerbar till preferens ist för fast siffra. DB-post?
-                    //Signalera bakänden att problemz sker
+                    // TODO SEN kanske se till att 3600000 är justerbar till preferens ist för fast siffra. DB-post?
+                    // Signalera bakänden att problemz sker
                 }
                 else if(Date.parse(p.startDate.toString()) < this.currentDate.getTime() + 3600000){
                     p.statusId = 2;
                 }
             }
         })
+        this.ngOnInit();
     }
 
     GetDataCells(data){
@@ -210,30 +255,11 @@ export class ScheduleComponent {
         }
     }
 
-    GenerateCellData(){
-        let minutes = 15;
-        let celldata = [];
-        let tt = 0;
-        
-        for (let i = 0; i < this.scheduledStaff.length; i++) {
-            const staff = this.scheduledStaff[i];
-            let staffId = i + 1;
-            for (let j = 0; tt < 24; j++) {
-                let hh = Math.floor(tt/60);
-                let mm = tt%60;
-                celldata.push(("0" + hh ).slice(-2) + ':' + ("0" + mm).slice(-2));
-                tt = tt + minutes;
-            }
-        }
-        console.log(celldata);
-    }
-
     GetWorkHours(data){
-
         let classObject = {};
         let className: string = "";
         classObject[this.IsWorkHours(data, className)] = true;
-        console.log("hej")
+        console.log("vafanih")
         return classObject;
     }
 

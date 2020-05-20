@@ -86,6 +86,7 @@ export class StatuscenterComponent implements OnInit {
     }
     this.isLoaded = true;
     this.deviationCount = deviants.length;
+    //setTimeout(() => {this.ngOnInit()}, 150);
     return this.GetSortedDeviations(deviants);
   }
 

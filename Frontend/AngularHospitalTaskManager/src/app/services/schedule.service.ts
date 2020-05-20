@@ -133,5 +133,8 @@ export class Service {
     MarkProcedureAsHandled(id:number, procedure:Procedure):Observable<void>{
         return this.http.put<void>(this.url + "markprocedureashandled/" + id, procedure);
     }
+    MarkProcedureAsUnhandled(id:number, procedure:Procedure):Observable<void>{
+        return this.http.put<void>(this.url + "markprocedureasunhandled/" + id, procedure);
+    }
 
 }
